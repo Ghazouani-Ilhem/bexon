@@ -1,21 +1,21 @@
 import React from 'react';
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
-import ShopGrid from '@/components/sections/ShopGrid';
+import PrivacyPolicy from '@/components/sections/PrivacyPolicy';
 
-const ShopPage: React.FC = () => {
+const PrivacyPolicyPage: React.FC = () => {
   return (
     <Layout>
       <PageHeader
-        title="Shop"
+        title="Privacy Policy"
         breadcrumbs={[
           { label: 'Home', href: '/' },
-          { label: 'Shop', href: '#' }
+          { label: 'Privacy Policy', href: '#' }
         ]}
       />
-      <ShopGrid />
+      <PrivacyPolicy />
     </Layout>
   );
 };
 
-export default ShopPage;
+export default PrivacyPolicyPage;

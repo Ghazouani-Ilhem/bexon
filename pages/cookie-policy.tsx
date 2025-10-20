@@ -1,21 +1,21 @@
 import React from 'react';
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
-import ShopGrid from '@/components/sections/ShopGrid';
+import CookiePolicy from '@/components/sections/CookiePolicy';
 
-const ShopPage: React.FC = () => {
+const CookiePolicyPage: React.FC = () => {
   return (
     <Layout>
       <PageHeader
-        title="Shop"
+        title="Cookie Policy"
         breadcrumbs={[
           { label: 'Home', href: '/' },
-          { label: 'Shop', href: '#' }
+          { label: 'Cookie Policy', href: '#' }
         ]}
       />
-      <ShopGrid />
+      <CookiePolicy />
     </Layout>
   );
 };
 
-export default ShopPage;
+export default CookiePolicyPage;

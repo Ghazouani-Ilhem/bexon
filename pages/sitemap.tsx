@@ -1,21 +1,21 @@
 import React from 'react';
 import Layout from '@/components/Layout';
 import PageHeader from '@/components/PageHeader';
-import ShopGrid from '@/components/sections/ShopGrid';
+import Sitemap from '@/components/sections/Sitemap';
 
-const ShopPage: React.FC = () => {
+const SitemapPage: React.FC = () => {
   return (
     <Layout>
       <PageHeader
-        title="Shop"
+        title="Site Map"
         breadcrumbs={[
           { label: 'Home', href: '/' },
-          { label: 'Shop', href: '#' }
+          { label: 'Site Map', href: '#' }
         ]}
       />
-      <ShopGrid />
+      <Sitemap />
     </Layout>
   );
 };
 
-export default ShopPage;
+export default SitemapPage;
