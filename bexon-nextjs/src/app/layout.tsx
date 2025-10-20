@@ -1,20 +1,28 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Layout from "@/components/layout/Layout";
 import ScriptLoader from "@/components/ScriptLoader";
+import { generateSEO, structuredData } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+  preload: true,
 });
 
-export const metadata: Metadata = {
-  title: "Bexon - Corporate Business Template",
-  description: "Bexon - Corporate Business HTML Template converted to Next.js",
-  keywords: "corporate, business, template, nextjs, react",
-  authors: [{ name: "Theme-Junction" }],
-  viewport: "width=device-width, initial-scale=1",
+export const metadata: Metadata = generateSEO({
+  title: "Bexon - Corporate Business Solutions",
+  description: "Leading provider of innovative business solutions, helping companies achieve growth through cutting-edge technology and exceptional service.",
+  keywords: "business solutions, corporate services, technology consulting, digital transformation, business growth, innovation",
+});
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
 };
 
 export default function RootLayout({
@@ -26,16 +34,20 @@ export default function RootLayout({
     <html lang="en" className="no-js">
       <head>
         <link rel="shortcut icon" type="image/x-icon" href="/assets/images/fav.png" />
-        <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/assets/css/font-awesome-pro.min.css" />
-        <link rel="stylesheet" href="/assets/css/animate.min.css" />
-        <link rel="stylesheet" href="/assets/css/bexon-icons.css" />
-        <link rel="stylesheet" href="/assets/css/nice-select.css" />
-        <link rel="stylesheet" href="/assets/css/swiper.min.css" />
-        <link rel="stylesheet" href="/assets/css/venobox.min.css" />
-        <link rel="stylesheet" href="/assets/css/odometer-theme-default.css" />
-        <link rel="stylesheet" href="/assets/css/meanmenu.css" />
-        <link rel="stylesheet" href="/assets/css/main.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData.organization),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData.website),
+          }}
+        />
       </head>
       <body className={`${inter.variable} antialiased`}>
         <div className="body-overlay"></div>

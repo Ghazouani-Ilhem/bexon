@@ -1,0 +1,50 @@
+'use client';
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect } from 'react';
+
+const PerformanceMonitor = () => {
+  useEffect(() => {
+    if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
+      // Monitor Core Web Vitals
+      const observer = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (entry.entryType === 'largest-contentful-paint') {
+            console.log('LCP:', entry.startTime);
+          }
+          if (entry.entryType === 'first-input') {
+            console.log('FID:', (entry as any).processingStart - entry.startTime);
+          }
+          if (entry.entryType === 'layout-shift') {
+            console.log('CLS:', (entry as any).value);
+          }
+        }
+      });
+
+      observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+
+      // Monitor resource loading
+      const resourceObserver = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          if (entry.entryType === 'resource') {
+            const resource = entry as PerformanceResourceTiming;
+            if (resource.duration > 1000) {
+              console.warn('Slow resource:', resource.name, resource.duration + 'ms');
+            }
+          }
+        }
+      });
+
+      resourceObserver.observe({ entryTypes: ['resource'] });
+
+      return () => {
+        observer.disconnect();
+        resourceObserver.disconnect();
+      };
+    }
+  }, []);
+
+  return null;
+};
+
+export default PerformanceMonitor;

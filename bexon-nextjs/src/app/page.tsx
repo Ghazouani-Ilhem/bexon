@@ -1,206 +1,266 @@
-import Image from "next/image";
-import Link from "next/link";
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Users, Lightbulb, Award, ArrowDown } from 'lucide-react';
+import FeatureCard from '@/components/sections/FeatureCard';
+import ClientLogo from '@/components/sections/ClientLogo';
+import Section from '@/components/ui/Section';
+import Container from '@/components/ui/Container';
+import Heading from '@/components/ui/Heading';
+import Text from '@/components/ui/Text';
+import Grid from '@/components/ui/Grid';
+import Button from '@/components/ui/Button';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
+  const features = [
+    {
+      icon: <Lightbulb className="w-8 h-8" />,
+      title: 'Innovative Solutions',
+      description: 'We stay ahead of the curve, leveraging cutting-edge technologies and strategies to keep you competitive in a marketplace.',
+    },
+    {
+      icon: <Award className="w-8 h-8" />,
+      title: 'Award-Winning Expertise',
+      description: 'Recognized by industry leaders, our award-winning team has a proven record of delivering excellence across projects.',
+    },
+    {
+      icon: <Users className="w-8 h-8" />,
+      title: 'Dedicated Support',
+      description: 'Our team is always available to address your concerns, providing quick and effective solution to keep your business.',
+    },
+  ];
+
+  const clients = [
+    { src: '/assets/images/brands/brand-1.webp', alt: 'Brand 1' },
+    { src: '/assets/images/brands/brand-2.webp', alt: 'Brand 2' },
+    { src: '/assets/images/brands/brand-3.webp', alt: 'Brand 3' },
+    { src: '/assets/images/brands/brand-4.webp', alt: 'Brand 4' },
+    { src: '/assets/images/brands/brand-5.webp', alt: 'Brand 5' },
+    { src: '/assets/images/brands/brand-6.webp', alt: 'Brand 6' },
+  ];
+
   return (
     <>
-      {/* Banner Section */}
-      <section className="tj-banner-section section-gap-x" style={{minHeight: '100vh', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'}}>
-        <div className="banner-area">
-          <div className="banner-left-box">
-            <div className="banner-content">
-              <span className="sub-title wow fadeInDown" data-wow-delay=".2s">
-                <i className="tji-excellence"></i> Recognized for Excellence
-              </span>
-              <h1 className="banner-title title-anim" style={{color: 'white', fontSize: '3rem', fontWeight: 'bold', marginBottom: '1rem'}}>
-                Driving Excellence Through Evolution and <span style={{color: '#ffd700'}}>Trust.</span>
-              </h1>
-              <div className="banner-desc-area wow fadeInUp" data-wow-delay=".7s">
-                <Link className="banner-link" href="/about">
-                  <span><i className="tji-arrow-right-big"></i></span>
-                </Link>
-                <div className="banner-desc" style={{color: 'white', fontSize: '1.2rem', marginBottom: '2rem'}}>
-                  Represents growth, expansion, and modern business solution present growth, expansion.
-                </div>
-              </div>
-            </div>
-            <div className="banner-shape">
-              <Image src="/assets/images/shape/pattern-bg.webp" alt="" width={400} height={300} />
-            </div>
-          </div>
-          <div className="banner-right-box">
-            <div className="banner-img">
-              <Image 
-                data-speed="0.8" 
-                src="/assets/images/hero/hero-img.webp" 
-                alt="Hero Image" 
-                width={600} 
-                height={500} 
-              />
-            </div>
-            <div className="box-area">
-              <div className="customers-box">
-                <div className="customers">
-                  <ul>
-                    <li className="wow fadeInLeft" data-wow-delay=".5s">
-                      <Image src="/assets/images/testimonial/client-1.webp" alt="Client 1" width={50} height={50} />
-                    </li>
-                    <li className="wow fadeInLeft" data-wow-delay=".6s">
-                      <Image src="/assets/images/testimonial/client-2.webp" alt="Client 2" width={50} height={50} />
-                    </li>
-                    <li className="wow fadeInLeft" data-wow-delay=".7s">
-                      <Image src="/assets/images/testimonial/client-3.webp" alt="Client 3" width={50} height={50} />
-                    </li>
-                    <li className="wow fadeInLeft" data-wow-delay=".8s">
-                      <span><i className="tji-plus"></i></span>
-                    </li>
-                  </ul>
-                </div>
-                <div className="customers-number wow fadeInUp" data-wow-delay=".5s">30K</div>
-                <h6 className="customers-text wow fadeInUp" data-wow-delay=".5s">Happy customer we have world-wide.</h6>
-              </div>
-            </div>
-          </div>
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-800 overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <Image 
+            src="/assets/images/shape/pattern-bg.webp" 
+            alt="Pattern" 
+            fill
+            className="object-cover"
+          />
         </div>
-        <div className="banner-scroll wow fadeInDown" data-wow-delay="2s">
-          <Link href="#choose" className="scroll-down">
-            <span><i className="tji-arrow-down-long"></i></span>
-            Scroll Down
-          </Link>
-        </div>
-      </section>
-
-      {/* Choose Section */}
-      <section id="choose" className="tj-choose-section section-gap">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="sec-heading text-center">
-                <span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-                  <i className="tji-box"></i>Choose the Best
+        
+        <Container className="relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left Content */}
+            <div className="text-white">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="mb-4"
+              >
+                <span className="inline-flex items-center px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">
+                  <Award className="w-4 h-4 mr-2" />
+                  Recognized for Excellence
                 </span>
-                <h2 className="sec-title title-anim">
-                  Empowering Business with <span>Expertise.</span>
-                </h2>
-              </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                <Heading
+                  level={1}
+                  className="mb-6 text-white"
+                >
+                  Driving Excellence Through Evolution and <span className="text-yellow-400">Trust.</span>
+                </Heading>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+              <Text
+                size="lg"
+                color="white"
+                className="mb-8 text-blue-100"
+              >
+                  Represents growth, expansion, and modern business solution present growth, expansion.
+                </Text>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+                className="flex items-center space-x-4"
+              >
+                <Button
+                  href="/about"
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-white hover:bg-white hover:text-blue-600"
+                >
+                  Learn More
+                </Button>
+                <Link
+                  href="#choose"
+                  className="flex items-center text-white hover:text-yellow-400 transition-colors"
+                >
+                  <ArrowDown className="w-5 h-5 mr-2" />
+                  Scroll Down
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Right Content */}
+            <div className="relative">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="relative"
+              >
+                <Image 
+                  src="/assets/images/hero/hero-img.webp" 
+                  alt="Hero Image" 
+                  width={600} 
+                  height={500}
+                  className="rounded-lg shadow-2xl"
+                  priority
+                />
+                
+                {/* Floating Stats */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 1 }}
+                  className="absolute -bottom-8 -left-8 bg-white rounded-lg p-6 shadow-xl"
+                >
+                  <div className="flex items-center space-x-4">
+                    <div className="flex -space-x-2">
+                      <Image src="/assets/images/testimonial/client-1.webp" alt="Client 1" width={40} height={40} className="rounded-full border-2 border-white" />
+                      <Image src="/assets/images/testimonial/client-2.webp" alt="Client 2" width={40} height={40} className="rounded-full border-2 border-white" />
+                      <Image src="/assets/images/testimonial/client-3.webp" alt="Client 3" width={40} height={40} className="rounded-full border-2 border-white" />
+                      <div className="w-10 h-10 bg-blue-600 rounded-full border-2 border-white flex items-center justify-center text-white font-bold">
+                        +
+                      </div>
+                    </div>
+                    <div>
+                      <div className="text-2xl font-bold text-gray-900">30K</div>
+                      <div className="text-sm text-gray-600">Happy customers worldwide</div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
-          <div className="row row-gap-4 rightSwipeWrap">
-            <div className="col-lg-4">
-              <div className="choose-box right-swipe">
-                <div className="choose-content">
-                  <div className="choose-icon">
-                    <i className="tji-innovative"></i>
-                  </div>
-                  <h4 className="title">Innovative Solutions</h4>
-                  <p className="desc">
-                    We stay ahead of the curve, leveraging cutting-edge technologies and strategies to keep you competitive in a marketplace.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="choose-box right-swipe">
-                <div className="choose-content">
-                  <div className="choose-icon">
-                    <i className="tji-award"></i>
-                  </div>
-                  <h4 className="title">Award-Winning Expertise</h4>
-                  <p className="desc">
-                    Recognized by industry leaders, our award-winning team has a proven record of delivering excellence across projects.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="choose-box right-swipe">
-                <div className="choose-content">
-                  <div className="choose-icon">
-                    <i className="tji-support"></i>
-                  </div>
-                  <h4 className="title">Dedicated Support</h4>
-                  <p className="desc">
-                    Our team is always available to address your concerns, providing quick and effective solution to keep your business.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Client Section */}
-      <section className="tj-client-section client-section-gap wow fadeInUp" data-wow-delay=".4s">
-        <div className="container-fluid client-container">
-          <div className="row">
-            <div className="col-12">
-              <div className="client-content">
-                <h5 className="sec-title">
-                  Join Over <span className="client-numbers">1000+</span> Companies with <span className="client-text">Bexon</span> Here
-                </h5>
-              </div>
-              <div className="swiper client-slider client-slider-1">
-                <div className="swiper-wrapper">
-                  <div className="swiper-slide client-item">
-                    <div className="client-logo">
-                      <Image src="/assets/images/brands/brand-1.webp" alt="Brand 1" width={120} height={60} />
-                    </div>
-                  </div>
-                  <div className="swiper-slide client-item">
-                    <div className="client-logo">
-                      <Image src="/assets/images/brands/brand-2.webp" alt="Brand 2" width={120} height={60} />
-                    </div>
-                  </div>
-                  <div className="swiper-slide client-item">
-                    <div className="client-logo">
-                      <Image src="/assets/images/brands/brand-3.webp" alt="Brand 3" width={120} height={60} />
-                    </div>
-                  </div>
-                  <div className="swiper-slide client-item">
-                    <div className="client-logo">
-                      <Image src="/assets/images/brands/brand-4.webp" alt="Brand 4" width={120} height={60} />
-                    </div>
-                  </div>
-                  <div className="swiper-slide client-item">
-                    <div className="client-logo">
-                      <Image src="/assets/images/brands/brand-5.webp" alt="Brand 5" width={120} height={60} />
-                    </div>
-                  </div>
-                  <div className="swiper-slide client-item">
-                    <div className="client-logo">
-                      <Image src="/assets/images/brands/brand-6.webp" alt="Brand 6" width={120} height={60} />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* Features Section */}
+      <Section id="choose" background="gray" padding="xl">
+        <Container>
+          <div className="text-center mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6 }}
+              className="mb-4"
+            >
+              <span className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">
+                <Award className="w-4 h-4 mr-2" />
+                Choose the Best
+              </span>
+            </motion.div>
+            
+            <Heading level={2} className="mb-4" align="center">
+              Empowering Business with <span className="text-blue-600">Expertise.</span>
+            </Heading>
+            <Text size="lg" color="secondary" align="center" className="max-w-2xl mx-auto">
+              We provide comprehensive solutions that help your business grow and succeed in today's competitive market.
+            </Text>
           </div>
-        </div>
-      </section>
+          
+          <Grid cols={3} gap="lg">
+            {features.map((feature, index) => (
+              <FeatureCard
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                delay={index * 0.1}
+              />
+            ))}
+          </Grid>
+        </Container>
+      </Section>
+
+      {/* Client Logos Section */}
+      <Section background="white" padding="lg">
+        <Container>
+          <div className="text-center mb-12">
+            <Heading level={3} className="mb-4" align="center">
+              Join Over <span className="text-blue-600">1000+</span> Companies with <span className="text-blue-600">Bexon</span> Here
+            </Heading>
+          </div>
+          
+          <Grid cols={6} gap="md">
+            {clients.map((client, index) => (
+              <ClientLogo
+                key={index}
+                src={client.src}
+                alt={client.alt}
+                delay={index * 0.1}
+              />
+            ))}
+          </Grid>
+        </Container>
+      </Section>
 
       {/* CTA Section */}
-      <section className="tj-cta-section">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="cta-area">
-                <div className="cta-content">
-                  <h2 className="title title-anim">Let's Build Future Together.</h2>
-                  <div className="cta-btn wow fadeInUp" data-wow-delay=".6s">
-                    <Link className="tj-primary-btn btn-dark" href="/contact">
-                      <span className="btn-text">Get Started Now</span>
-                      <span className="btn-icon"><i className="tji-arrow-right-long"></i></span>
-                    </Link>
-                  </div>
-                </div>
-                <div className="cta-img">
-                  <Image src="/assets/images/cta/cta-bg.webp" alt="CTA Background" width={600} height={400} />
-                </div>
-              </div>
+      <Section background="gradient" padding="xl">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Heading level={2} className="mb-6 text-white">
+                Let's Build Future Together.
+              </Heading>
+              <Text size="lg" color="white" className="mb-8 text-blue-100">
+                Ready to take your business to the next level? Contact us today and let's discuss how we can help you achieve your goals.
+              </Text>
+              <Button
+                href="/contact"
+                variant="outline"
+                size="lg"
+                className="border-white text-white hover:bg-white hover:text-blue-600"
+              >
+                Get Started Now
+              </Button>
+            </div>
+            <div className="relative">
+              <Image 
+                src="/assets/images/cta/cta-bg.webp" 
+                alt="CTA Background" 
+                width={600} 
+                height={400}
+                className="rounded-lg shadow-2xl"
+              />
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
   );
 }

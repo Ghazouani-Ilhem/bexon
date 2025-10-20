@@ -3,7 +3,10 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Search } from 'lucide-react';
+import { Search, Menu } from 'lucide-react';
+import Button from '../ui/Button';
+import SearchPopup from '../common/SearchPopup';
+import OffcanvasMenu from '../common/OffcanvasMenu';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,73 +18,87 @@ const Header = () => {
   return (
     <>
       {/* Main Header */}
-      <header className="header-area header-1 section-gap-x" style={{background: 'white', padding: '1rem 0', boxShadow: '0 2px 10px rgba(0,0,0,0.1)'}}>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col-12">
-              <div className="header-wrapper">
-                {/* Site Logo */}
-                <div className="site_logo">
-                  <Link className="logo" href="/">
-                    <Image src="/assets/images/logos/logo.webp" alt="Bexon Logo" width={150} height={50} />
-                  </Link>
-                </div>
-
-                {/* Navigation */}
-                <div className="menu-area d-none d-lg-inline-flex align-items-center">
-                  <nav id="mobile-menu" className="mainmenu">
-                    <ul style={{display: 'flex', listStyle: 'none', gap: '2rem', margin: 0, padding: 0}}>
-                      <li className="has-dropdown">
-                        <Link href="/" style={{textDecoration: 'none', color: '#333', fontWeight: '500'}}>Home</Link>
-                      </li>
-                      <li className="has-dropdown">
-                        <Link href="/about" style={{textDecoration: 'none', color: '#333', fontWeight: '500'}}>Pages</Link>
-                      </li>
-                      <li className="has-dropdown">
-                        <Link href="/service" style={{textDecoration: 'none', color: '#333', fontWeight: '500'}}>Services</Link>
-                      </li>
-                      <li className="has-dropdown">
-                        <Link href="/portfolio" style={{textDecoration: 'none', color: '#333', fontWeight: '500'}}>Portfolio</Link>
-                      </li>
-                      <li className="has-dropdown">
-                        <Link href="/blog" style={{textDecoration: 'none', color: '#333', fontWeight: '500'}}>Blog</Link>
-                      </li>
-                      <li><Link href="/contact" style={{textDecoration: 'none', color: '#333', fontWeight: '500'}}>Contact</Link></li>
-                    </ul>
-                  </nav>
-                </div>
-
-                {/* Header Right Items */}
-                <div className="header-right-item d-none d-lg-inline-flex">
-                  <div className="header-search">
-                    <button className="search" onClick={toggleSearch}>
-                      <Search className="w-5 h-5" />
-                    </button>
-                  </div>
-                  <div className="header-button">
-                    <Link className="tj-primary-btn" href="/contact">
-                      <span className="btn-text">Let's Talk</span>
-                      <span className="btn-icon"><i className="tji-arrow-right-long"></i></span>
-                    </Link>
-                  </div>
-                  <div className="menu_bar menu_offcanvas d-none d-lg-inline-flex" onClick={toggleMenu}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-
-                {/* Mobile Menu Bar */}
-                <div className="menu_bar mobile_menu_bar d-lg-none" onClick={toggleMenu}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
+      <header className="header-area header-1 section-gap-x bg-white shadow-lg sticky top-0 z-40" role="banner">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between py-4">
+            {/* Site Logo */}
+            <div className="site_logo">
+              <Link className="logo" href="/">
+                <Image 
+                  src="/assets/images/logos/logo.webp" 
+                  alt="Bexon Logo" 
+                  width={150} 
+                  height={50}
+                  priority
+                />
+              </Link>
             </div>
+
+            {/* Navigation */}
+            <nav className="hidden lg:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+              <Link href="/" className="text-gray-700 hover:text-blue-600 transition-colors font-medium" aria-current="page">
+                Home
+              </Link>
+              <Link href="/about" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Pages
+              </Link>
+              <Link href="/service" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Services
+              </Link>
+              <Link href="/portfolio" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Portfolio
+              </Link>
+              <Link href="/blog" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Blog
+              </Link>
+              <Link href="/contact" className="text-gray-700 hover:text-blue-600 transition-colors font-medium">
+                Contact
+              </Link>
+            </nav>
+
+            {/* Header Right Items */}
+            <div className="hidden lg:flex items-center space-x-4">
+              <button 
+                onClick={toggleSearch}
+                className="p-2 text-gray-700 hover:text-blue-600 transition-colors"
+                aria-label="Search"
+              >
+                <Search className="w-5 h-5" />
+              </button>
+              <Button
+                href="/contact"
+                variant="primary"
+                size="md"
+                className="tj-primary-btn"
+              >
+                Let's Talk
+              </Button>
+              <button 
+                onClick={toggleMenu}
+                className="p-2 text-gray-700 hover:text-blue-600 transition-colors"
+                aria-label="Open menu"
+              >
+                <Menu className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button 
+              onClick={toggleMenu}
+              className="lg:hidden p-2 text-gray-700 hover:text-blue-600 transition-colors"
+              aria-label="Open mobile menu"
+            >
+              <Menu className="w-6 h-6" />
+            </button>
           </div>
         </div>
       </header>
+
+      {/* Search Popup */}
+      <SearchPopup isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      
+      {/* Offcanvas Menu */}
+      <OffcanvasMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </>
   );
 };

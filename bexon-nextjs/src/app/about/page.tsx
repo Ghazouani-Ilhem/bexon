@@ -1,177 +1,180 @@
+'use client';
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { CheckCircle, Users, Target, Award } from 'lucide-react';
+import Breadcrumb from '@/components/common/Breadcrumb';
+import HeroSection from '@/components/sections/HeroSection';
+import FeatureCard from '@/components/sections/FeatureCard';
+import Section from '@/components/ui/Section';
+import Container from '@/components/ui/Container';
+import Heading from '@/components/ui/Heading';
+import Text from '@/components/ui/Text';
+import Grid from '@/components/ui/Grid';
 import Image from 'next/image';
-import Link from 'next/link';
 
 export default function About() {
+  const breadcrumbItems = [
+    { label: 'About Us' }
+  ];
+
+  const features = [
+    {
+      icon: <Users className="w-8 h-8" />,
+      title: 'Our Mission',
+      description: 'To empower businesses with innovative solutions that drive growth and success in the digital age.',
+    },
+    {
+      icon: <Target className="w-8 h-8" />,
+      title: 'Our Vision',
+      description: 'To be the leading provider of business solutions that transform how companies operate and compete.',
+    },
+    {
+      icon: <Award className="w-8 h-8" />,
+      title: 'Our Values',
+      description: 'Excellence, integrity, innovation, and customer satisfaction are the core values that guide everything we do.',
+    },
+  ];
+
+  const stats = [
+    { number: '1000+', label: 'Projects Completed' },
+    { number: '500+', label: 'Happy Clients' },
+    { number: '50+', label: 'Team Members' },
+    { number: '10+', label: 'Years Experience' },
+  ];
+
   return (
     <>
-      {/* Breadcrumb Section */}
-      <section className="tj-page-header section-gap-x" data-bg-image="/assets/images/bg/pheader-bg.webp">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="tj-page-header-content text-center">
-                <h1 className="tj-page-title">About Us</h1>
-                <div className="tj-page-link">
-                  <span><i className="tji-home"></i></span>
-                  <span>
-                    <Link href="/">Home</Link>
-                  </span>
-                  <span><i className="tji-arrow-right"></i></span>
-                  <span>
-                    <span>About Us</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="page-header-overlay" data-bg-image="/assets/images/shape/pheader-overlay.webp"></div>
-      </section>
+      {/* Breadcrumb */}
+      <Section background="gray" padding="sm">
+        <Container>
+          <Breadcrumb items={breadcrumbItems} />
+        </Container>
+      </Section>
 
-      {/* Choose Section */}
-      <section id="choose" className="tj-choose-section section-gap">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <div className="sec-heading-wrap">
-                <span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-                  <i className="tji-box"></i>Choose the Best
-                </span>
-                <div className="heading-wrap-content">
-                  <div className="sec-heading">
-                    <h2 className="sec-title title-anim">Empowering Business with <span>Expertise.</span></h2>
-                  </div>
-                  <div className="btn-wrap wow fadeInUp" data-wow-delay=".6s">
-                    <Link className="tj-primary-btn" href="/contact">
-                      <span className="btn-text">Request a Call</span>
-                      <span className="btn-icon"><i className="tji-arrow-right-long"></i></span>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="row row-gap-4 rightSwipeWrap">
-            <div className="col-lg-4">
-              <div className="choose-box right-swipe">
-                <div className="choose-content">
-                  <div className="choose-icon">
-                    <i className="tji-innovative"></i>
-                  </div>
-                  <h4 className="title">Innovative Solutions</h4>
-                  <p className="desc">
-                    We stay ahead of the curve, leveraging cutting-edge technologies and strategies to keep you competitive in a marketplace.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="choose-box right-swipe">
-                <div className="choose-content">
-                  <div className="choose-icon">
-                    <i className="tji-award"></i>
-                  </div>
-                  <h4 className="title">Award-Winning Expertise</h4>
-                  <p className="desc">
-                    Recognized by industry leaders, our award-winning team has a proven record of delivering excellence across projects.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4">
-              <div className="choose-box right-swipe">
-                <div className="choose-content">
-                  <div className="choose-icon">
-                    <i className="tji-support"></i>
-                  </div>
-                  <h4 className="title">Dedicated Support</h4>
-                  <p className="desc">
-                    Our team is always available to address your concerns, providing quick and effective solution to keep your business.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section */}
+      <HeroSection
+        title="About Bexon"
+        subtitle="Who We Are"
+        description="We are a leading business solutions provider dedicated to helping companies achieve their goals through innovative technology and exceptional service."
+        buttonText="Contact Us"
+        buttonHref="/contact"
+        background="white"
+        className="py-20"
+      />
 
-      {/* About Section */}
-      <section className="tj-about-section-2 section-gap section-gap-x">
-        <div className="container">
-          <div className="row">
-            <div className="col-xl-6 col-lg-6 order-lg-1 order-2">
-              <div className="about-img-area style-2 wow fadeInLeft" data-wow-delay=".3s">
-                <div className="about-img overflow-hidden">
-                  <Image data-speed=".8" src="/assets/images/about/about-5.webp" alt="About Image" width={500} height={400} />
+      {/* About Content */}
+      <Section background="white" padding="xl">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Heading level={2} className="mb-6">
+                We're Building the Future of Business
+              </Heading>
+              <Text size="lg" color="secondary" className="mb-6">
+                At Bexon, we believe that every business has the potential to achieve extraordinary success. 
+                Our mission is to unlock that potential through innovative solutions, cutting-edge technology, 
+                and unwavering commitment to excellence.
+              </Text>
+              <Text color="secondary" className="mb-8">
+                Since our founding, we've helped hundreds of companies transform their operations, 
+                streamline their processes, and achieve unprecedented growth. Our team of experts 
+                brings together decades of experience across various industries, ensuring that 
+                every solution we deliver is tailored to your specific needs.
+              </Text>
+              
+              <div className="space-y-4">
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  <Text>Proven track record of success</Text>
                 </div>
-                <div className="box-area style-2">
-                  <div className="progress-box wow fadeInUp" data-wow-delay=".3s">
-                    <h4 className="title">Business Progress</h4>
-                    <ul className="tj-progress-list">
-                      <li>
-                        <h6 className="tj-progress-title">Revenue</h6>
-                        <div className="tj-progress">
-                          <span className="tj-progress-percent">82%</span>
-                          <div className="tj-progress-bar" data-percent="82"></div>
-                        </div>
-                      </li>
-                      <li>
-                        <h6 className="tj-progress-title">Satisfaction</h6>
-                        <div className="tj-progress">
-                          <span className="tj-progress-percent">90%</span>
-                          <div className="tj-progress-bar" data-percent="90"></div>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  <Text>Industry-leading expertise</Text>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  <Text>24/7 customer support</Text>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
+                  <Text>Cutting-edge technology</Text>
                 </div>
               </div>
             </div>
-            <div className="col-xl-6 col-lg-6 order-lg-2 order-1">
-              <div className="about-content-area">
-                <div className="sec-heading">
-                  <span className="sub-title wow fadeInUp" data-wow-delay=".3s">
-                    <i className="tji-box"></i>Get to Know Us
-                  </span>
-                  <h2 className="sec-title title-anim">
-                    Driving Innovation and Excellence for Sustainable Corporate Success <span>Worldwide.</span>
-                  </h2>
-                </div>
-              </div>
-              <div className="about-bottom-area">
-                <div className="mission-vision-box wow fadeInLeft" data-wow-delay=".5s">
-                  <h4 className="title">Our Mission</h4>
-                  <p className="desc">
-                    our mission is empower businesses through innovate best solution, exceptional service.
-                  </p>
-                  <ul className="list-items">
-                    <li><i className="tji-list"></i>Innovation & Excellence</li>
-                    <li><i className="tji-list"></i>Exceptional Customer</li>
-                    <li><i className="tji-list"></i>Business Growth</li>
-                  </ul>
-                </div>
-                <div className="mission-vision-box wow fadeInRight" data-wow-delay=".5s">
-                  <h4 className="title">Our Vision</h4>
-                  <p className="desc">
-                    Our vision is to become a global leader in providing transformative business solutions.
-                  </p>
-                  <ul className="list-items">
-                    <li><i className="tji-list"></i>Global Leadership</li>
-                    <li><i className="tji-list"></i>Transformative Impact</li>
-                    <li><i className="tji-list"></i>Sustainable Success</li>
-                  </ul>
-                </div>
-              </div>
-              <div className="about-btn-area wow fadeInUp" data-wow-delay=".6s">
-                <Link className="tj-primary-btn" href="/about">
-                  <span className="btn-text">Learn More About Us</span>
-                  <span className="btn-icon"><i className="tji-arrow-right-long"></i></span>
-                </Link>
-              </div>
+            
+            <div className="relative">
+              <Image 
+                src="/assets/images/about/about-img.webp" 
+                alt="About Us" 
+                width={600} 
+                height={400}
+                className="rounded-lg shadow-xl"
+              />
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
+
+      {/* Features Section */}
+      <Section background="gray" padding="xl">
+        <Container>
+          <div className="text-center mb-16">
+            <Heading level={2} className="mb-4" align="center">
+              Why Choose Bexon
+            </Heading>
+            <Text size="lg" color="secondary" align="center" className="max-w-2xl mx-auto">
+              We combine industry expertise with innovative solutions to deliver exceptional results for our clients.
+            </Text>
+          </div>
+          
+          <Grid cols={3} gap="lg">
+            {features.map((feature, index) => (
+              <FeatureCard
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                delay={index * 0.1}
+              />
+            ))}
+          </Grid>
+        </Container>
+      </Section>
+
+      {/* Stats Section */}
+      <Section background="blue" padding="xl">
+        <Container>
+          <div className="text-center mb-16">
+            <Heading level={2} className="mb-4 text-white" align="center">
+              Our Impact
+            </Heading>
+            <Text size="lg" color="white" align="center" className="max-w-2xl mx-auto">
+              Numbers that speak to our success and commitment to excellence.
+            </Text>
+          </div>
+          
+          <Grid cols={4} gap="lg">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="text-center"
+              >
+                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-blue-100 text-lg">
+                  {stat.label}
+                </div>
+              </motion.div>
+            ))}
+          </Grid>
+        </Container>
+      </Section>
     </>
   );
 }
