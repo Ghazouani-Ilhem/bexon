@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, User, ArrowRight, Search, Filter } from 'lucide-react';
+import { Calendar, User, ArrowRight, Search } from 'lucide-react';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import HeroSection from '@/components/sections/HeroSection';
 import Section from '@/components/ui/Section';

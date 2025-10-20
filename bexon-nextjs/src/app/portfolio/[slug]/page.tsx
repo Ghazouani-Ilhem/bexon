@@ -19,7 +19,22 @@ interface PortfolioDetailsProps {
   };
 }
 
-const projectData: { [key: string]: any } = {
+const projectData: { [key: string]: {
+  title: string;
+  category: string;
+  description: string;
+  longDescription: string;
+  image: string;
+  gallery: string[];
+  client: string;
+  date: string;
+  duration: string;
+  team: string;
+  technologies: string[];
+  features: string[];
+  challenges: string[];
+  results: string[];
+} } = {
   'e-commerce-platform': {
     title: 'E-Commerce Platform',
     category: 'Web Development',

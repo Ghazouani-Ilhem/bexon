@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, User, Clock, Share2, Tag } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, Share2 } from 'lucide-react';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import Section from '@/components/ui/Section';
 import Container from '@/components/ui/Container';
@@ -19,7 +19,25 @@ interface BlogDetailsProps {
   };
 }
 
-const blogData: { [key: string]: any } = {
+const blogData: { [key: string]: {
+  title: string;
+  excerpt: string;
+  content: string;
+  image: string;
+  category: string;
+  author: string;
+  authorImage: string;
+  authorBio: string;
+  date: string;
+  readTime: string;
+  tags: string[];
+  relatedPosts: Array<{
+    title: string;
+    slug: string;
+    image: string;
+    date: string;
+  }>;
+} } = {
   'future-digital-transformation-2024': {
     title: 'The Future of Digital Transformation in 2024',
     excerpt: 'Explore the latest trends and technologies that are shaping the future of digital transformation and how businesses can adapt to stay competitive.',
@@ -306,7 +324,7 @@ export default function BlogDetails({ params }: BlogDetailsProps) {
             </Heading>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {post.relatedPosts.map((relatedPost: any, index: number) => (
+              {post.relatedPosts.map((relatedPost: { title: string; slug: string; image: string; date: string }, index: number) => (
                 <motion.article
                   key={index}
                   initial={{ opacity: 0, y: 30 }}

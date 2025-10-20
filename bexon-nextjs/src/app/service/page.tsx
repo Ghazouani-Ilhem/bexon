@@ -5,14 +5,12 @@ import { motion } from 'framer-motion';
 import { CheckCircle, Users, Target, Award, Lightbulb, Shield, Zap } from 'lucide-react';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import HeroSection from '@/components/sections/HeroSection';
-import FeatureCard from '@/components/sections/FeatureCard';
 import Section from '@/components/ui/Section';
 import Container from '@/components/ui/Container';
 import Heading from '@/components/ui/Heading';
 import Text from '@/components/ui/Text';
 import Grid from '@/components/ui/Grid';
 import Button from '@/components/ui/Button';
-import Image from 'next/image';
 
 export default function Service() {
   const breadcrumbItems = [

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Filter, ExternalLink, Eye } from 'lucide-react';
+import { ExternalLink, Eye } from 'lucide-react';
 import Breadcrumb from '@/components/common/Breadcrumb';
 import HeroSection from '@/components/sections/HeroSection';
 import Section from '@/components/ui/Section';

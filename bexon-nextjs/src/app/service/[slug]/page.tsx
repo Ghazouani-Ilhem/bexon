@@ -18,7 +18,17 @@ interface ServiceDetailsProps {
   };
 }
 
-const serviceData: { [key: string]: any } = {
+const serviceData: { [key: string]: {
+  title: string;
+  description: string;
+  image: string;
+  features: string[];
+  benefits: string[];
+  process: Array<{
+    step: string;
+    description: string;
+  }>;
+} } = {
   'business-strategy': {
     title: 'Business Strategy',
     description: 'We help you develop comprehensive business strategies that drive growth and success in today\'s competitive market.',
@@ -227,7 +237,7 @@ export default function ServiceDetails({ params }: ServiceDetailsProps) {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {service.process.map((step: any, index: number) => (
+            {service.process.map((step: { step: string; description: string }, index: number) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
