@@ -5,21 +5,21 @@ export default function Home() {
   return (
     <>
       {/* Banner Section */}
-      <section className="tj-banner-section section-gap-x">
+      <section className="tj-banner-section section-gap-x" style={{minHeight: '100vh', background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)'}}>
         <div className="banner-area">
           <div className="banner-left-box">
             <div className="banner-content">
               <span className="sub-title wow fadeInDown" data-wow-delay=".2s">
                 <i className="tji-excellence"></i> Recognized for Excellence
               </span>
-              <h1 className="banner-title title-anim">
-                Driving Excellence Through Evolution and <span>Trust.</span>
+              <h1 className="banner-title title-anim" style={{color: 'white', fontSize: '3rem', fontWeight: 'bold', marginBottom: '1rem'}}>
+                Driving Excellence Through Evolution and <span style={{color: '#ffd700'}}>Trust.</span>
               </h1>
               <div className="banner-desc-area wow fadeInUp" data-wow-delay=".7s">
                 <Link className="banner-link" href="/about">
                   <span><i className="tji-arrow-right-big"></i></span>
                 </Link>
-                <div className="banner-desc">
+                <div className="banner-desc" style={{color: 'white', fontSize: '1.2rem', marginBottom: '2rem'}}>
                   Represents growth, expansion, and modern business solution present growth, expansion.
                 </div>
               </div>

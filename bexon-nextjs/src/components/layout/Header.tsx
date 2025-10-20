@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <>
       {/* Main Header */}
-      <header className="header-area header-1 section-gap-x">
+      <header className="header-area header-1 section-gap-x" style={{background: 'white', padding: '1rem 0', boxShadow: '0 2px 10px rgba(0,0,0,0.1)'}}>
         <div className="container-fluid">
           <div className="row">
             <div className="col-12">
@@ -30,23 +30,23 @@ const Header = () => {
                 {/* Navigation */}
                 <div className="menu-area d-none d-lg-inline-flex align-items-center">
                   <nav id="mobile-menu" className="mainmenu">
-                    <ul>
+                    <ul style={{display: 'flex', listStyle: 'none', gap: '2rem', margin: 0, padding: 0}}>
                       <li className="has-dropdown">
-                        <Link href="/">Home</Link>
+                        <Link href="/" style={{textDecoration: 'none', color: '#333', fontWeight: '500'}}>Home</Link>
                       </li>
                       <li className="has-dropdown">
-                        <Link href="/about">Pages</Link>
+                        <Link href="/about" style={{textDecoration: 'none', color: '#333', fontWeight: '500'}}>Pages</Link>
                       </li>
                       <li className="has-dropdown">
-                        <Link href="/service">Services</Link>
+                        <Link href="/service" style={{textDecoration: 'none', color: '#333', fontWeight: '500'}}>Services</Link>
                       </li>
                       <li className="has-dropdown">
-                        <Link href="/portfolio">Portfolio</Link>
+                        <Link href="/portfolio" style={{textDecoration: 'none', color: '#333', fontWeight: '500'}}>Portfolio</Link>
                       </li>
                       <li className="has-dropdown">
-                        <Link href="/blog">Blog</Link>
+                        <Link href="/blog" style={{textDecoration: 'none', color: '#333', fontWeight: '500'}}>Blog</Link>
                       </li>
-                      <li><Link href="/contact">Contact</Link></li>
+                      <li><Link href="/contact" style={{textDecoration: 'none', color: '#333', fontWeight: '500'}}>Contact</Link></li>
                     </ul>
                   </nav>
                 </div>

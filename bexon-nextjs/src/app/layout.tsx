@@ -26,6 +26,16 @@ export default function RootLayout({
     <html lang="en" className="no-js">
       <head>
         <link rel="shortcut icon" type="image/x-icon" href="/assets/images/fav.png" />
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/assets/css/font-awesome-pro.min.css" />
+        <link rel="stylesheet" href="/assets/css/animate.min.css" />
+        <link rel="stylesheet" href="/assets/css/bexon-icons.css" />
+        <link rel="stylesheet" href="/assets/css/nice-select.css" />
+        <link rel="stylesheet" href="/assets/css/swiper.min.css" />
+        <link rel="stylesheet" href="/assets/css/venobox.min.css" />
+        <link rel="stylesheet" href="/assets/css/odometer-theme-default.css" />
+        <link rel="stylesheet" href="/assets/css/meanmenu.css" />
+        <link rel="stylesheet" href="/assets/css/main.css" />
       </head>
       <body className={`${inter.variable} antialiased`}>
         <div className="body-overlay"></div>
