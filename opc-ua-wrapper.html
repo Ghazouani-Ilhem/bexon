@@ -1,0 +1,698 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="OPC UA Wrapper - Industrial Integration Solution">
+
+  <title>OPC UA Wrapper - Integration Objects</title>
+
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/fav.png">
+
+  <!-- CSS here -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/font-awesome-pro.min.css">
+  <link rel="stylesheet" href="assets/css/animate.min.css">
+  <link rel="stylesheet" href="assets/css/bexon-icons.css">
+  <link rel="stylesheet" href="assets/css/nice-select.css">
+  <link rel="stylesheet" href="assets/css/swiper.min.css">
+  <link rel="stylesheet" href="assets/css/venobox.min.css">
+  <link rel="stylesheet" href="assets/css/odometer-theme-default.css">
+  <link rel="stylesheet" href="assets/css/meanmenu.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    /* OPC UA Wrapper Custom Styles */
+    .opc-hero-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0;
+    }
+
+    .opc-hero-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(30, 138, 138, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulse3 3s ease-in-out infinite;
+    }
+
+    .opc-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .opc-feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .opc-feature-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      animation: fadeInUp 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    .opc-feature-card:nth-child(1) { animation-delay: 0.1s; }
+    .opc-feature-card:nth-child(2) { animation-delay: 0.2s; }
+    .opc-feature-card:nth-child(3) { animation-delay: 0.3s; }
+    .opc-feature-card:nth-child(4) { animation-delay: 0.4s; }
+    .opc-feature-card:nth-child(5) { animation-delay: 0.5s; }
+    .opc-feature-card:nth-child(6) { animation-delay: 0.6s; }
+
+    .opc-feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    .opc-feature-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #1e8a8a 0%, #0f766e 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+      color: white;
+    }
+
+    .opc-feature-card:hover .opc-feature-icon {
+      animation: rotates 0.6s ease-in-out;
+    }
+
+    .opc-feature-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 12px;
+    }
+
+    .opc-feature-desc {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.6;
+    }
+
+    .opc-architecture-section {
+      background: #f8fafc;
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .opc-architecture-item {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 20px;
+      border-left: 4px solid #1e8a8a;
+      animation: slideInLeft 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    .opc-architecture-item:nth-child(1) { animation-delay: 0.1s; }
+    .opc-architecture-item:nth-child(2) { animation-delay: 0.2s; }
+    .opc-architecture-item:nth-child(3) { animation-delay: 0.3s; }
+    .opc-architecture-item:nth-child(4) { animation-delay: 0.4s; }
+
+    .opc-architecture-item h4 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .opc-architecture-item p {
+      color: #64748b;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .opc-use-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .opc-use-case-card {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      border-radius: 12px;
+      padding: 40px;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.6s ease-out forwards;
+      opacity: 0;
+    }
+
+    .opc-use-case-card:nth-child(1) { animation-delay: 0.1s; }
+    .opc-use-case-card:nth-child(2) { animation-delay: 0.2s; }
+    .opc-use-case-card:nth-child(3) { animation-delay: 0.3s; }
+
+    .opc-use-case-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(30, 138, 138, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .opc-use-case-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .opc-use-case-icon {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .opc-use-case-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .opc-use-case-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      opacity: 0.9;
+    }
+
+    .opc-cta-section {
+      background: linear-gradient(135deg, #1e8a8a 0%, #0f766e 100%);
+      padding: 80px 0;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .opc-cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .opc-cta-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .opc-cta-title {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .opc-cta-desc {
+      font-size: 16px;
+      margin-bottom: 30px;
+      opacity: 0.95;
+      animation: fadeInUp 0.6s ease-out 0.1s both;
+    }
+
+    .opc-cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+    }
+
+    .opc-btn-primary {
+      background: white;
+      color: #1e8a8a;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .opc-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .opc-btn-secondary {
+      background: transparent;
+      color: white;
+      padding: 14px 32px;
+      border: 2px solid white;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .opc-btn-secondary:hover {
+      background: white;
+      color: #1e8a8a;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="body-overlay"></div>
+
+  <!-- Preloader Start -->
+  <div class="tj-preloader is-loading">
+    <div class="tj-preloader-inner">
+      <div class="tj-preloader-ball-wrap">
+        <div class="tj-preloader-ball-inner-wrap">
+          <div class="tj-preloader-ball-inner">
+            <div class="tj-preloader-ball"></div>
+          </div>
+          <div class="tj-preloader-ball-shadow"></div>
+        </div>
+        <div id="tj-weave-anim" class="tj-weave-anim">Loading...</div>
+      </div>
+    </div>
+    <div class="tj-preloader-overlay"></div>
+  </div>
+  <!-- Preloader end -->
+
+  <!-- back to top start -->
+  <div id="tj-back-to-top"><span id="tj-back-to-top-percentage"></span></div>
+  <!-- back to top end -->
+
+  <!-- start: Header Area -->
+  <header class="header-area header-1 section-gap-x">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="header-wrapper">
+            <div class="site_logo">
+              <a class="logo" href="index.html"><img src="assets/images/logos/logo.webp" alt=""></a>
+            </div>
+
+            <div class="menu-area d-none d-lg-inline-flex align-items-center">
+              <nav id="mobile-menu" class="mainmenu">
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="service.html">Services</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+
+            <div class="header-right-item d-none d-lg-inline-flex">
+              <div class="header-button">
+                <a class="tj-primary-btn" href="contact.html">
+                  <span class="btn-text"><span>Get Started</span></span>
+                  <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                </a>
+              </div>
+              <div class="menu_bar menu_offcanvas d-none d-lg-inline-flex">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <div class="menu_bar mobile_menu_bar d-lg-none">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- end: Header Area -->
+
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <main id="primary" class="site-main">
+
+        <div class="space-for-header"></div>
+
+        <!-- Breadcrumb Section -->
+        <section class="tj-page-header section-gap-x" data-bg-image="assets/images/bg/pheader-bg.webp">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="tj-page-header-content text-center">
+                  <h1 class="tj-page-title">OPC UA Wrapper</h1>
+                  <div class="tj-page-link">
+                    <span><i class="tji-home"></i></span>
+                    <span><a href="index.html">Home</a></span>
+                    <span><i class="tji-arrow-right"></i></span>
+                    <span><a href="service.html">Products</a></span>
+                    <span><i class="tji-arrow-right"></i></span>
+                    <span>OPC UA Wrapper</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="page-header-overlay" data-bg-image="assets/images/shape/pheader-overlay.webp"></div>
+        </section>
+
+        <!-- Hero Section -->
+        <section class="opc-hero-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="opc-hero-content text-center">
+                  <span class="sub-title wow fadeInUp" data-wow-delay=".2s" style="color: #1e8a8a; font-size: 14px;">
+                    <i class="tji-box"></i> Industrial Integration Solution
+                  </span>
+                  <h2 class="sec-title title-anim wow fadeInUp" data-wow-delay=".3s" style="color: white; font-size: 42px; margin: 20px 0;">
+                    Unified OPC UA <span style="color: #1e8a8a;">Architecture</span>
+                  </h2>
+                  <p class="wow fadeInUp" data-wow-delay=".4s" style="color: #cbd5e1; font-size: 16px; line-height: 1.8; margin-bottom: 30px;">
+                    Seamlessly integrate legacy systems with modern industrial IoT platforms. Our OPC UA Wrapper provides secure, reliable connectivity across your entire enterprise infrastructure.
+                  </p>
+                  <div class="wow fadeInUp" data-wow-delay=".5s">
+                    <a class="tj-primary-btn" href="contact.html">
+                      <span class="btn-text"><span>Request Demo</span></span>
+                      <span class="btn-icon"><i class="tji-arrow-right-long"></i></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section-gap section-gap-x">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="sec-heading text-center wow fadeInUp" data-wow-delay=".2s">
+                  <span class="sub-title"><i class="tji-box"></i> Core Features</span>
+                  <h2 class="sec-title title-anim">Powerful Capabilities for <span>Modern Integration</span></h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="opc-feature-grid">
+              <div class="opc-feature-card wow fadeInUp" data-wow-delay=".2s">
+                <div class="opc-feature-icon">
+                  <i class="tji-service-1"></i>
+                </div>
+                <h4 class="opc-feature-title">Real-Time Data Access</h4>
+                <p class="opc-feature-desc">Instant access to live industrial data with sub-millisecond latency for critical operations.</p>
+              </div>
+
+              <div class="opc-feature-card wow fadeInUp" data-wow-delay=".3s">
+                <div class="opc-feature-icon">
+                  <i class="tji-service-2"></i>
+                </div>
+                <h4 class="opc-feature-title">Enterprise Security</h4>
+                <p class="opc-feature-desc">Military-grade encryption and authentication protocols protect your sensitive industrial data.</p>
+              </div>
+
+              <div class="opc-feature-card wow fadeInUp" data-wow-delay=".4s">
+                <div class="opc-feature-icon">
+                  <i class="tji-service-3"></i>
+                </div>
+                <h4 class="opc-feature-title">Scalable Architecture</h4>
+                <p class="opc-feature-desc">Handle thousands of concurrent connections without performance degradation.</p>
+              </div>
+
+              <div class="opc-feature-card wow fadeInUp" data-wow-delay=".5s">
+                <div class="opc-feature-icon">
+                  <i class="tji-service-4"></i>
+                </div>
+                <h4 class="opc-feature-title">Legacy System Support</h4>
+                <p class="opc-feature-desc">Seamlessly bridge old and new systems with comprehensive protocol support.</p>
+              </div>
+
+              <div class="opc-feature-card wow fadeInUp" data-wow-delay=".6s">
+                <div class="opc-feature-icon">
+                  <i class="tji-service-5"></i>
+                </div>
+                <h4 class="opc-feature-title">Advanced Monitoring</h4>
+                <p class="opc-feature-desc">Real-time dashboards and alerts for complete visibility into your operations.</p>
+              </div>
+
+              <div class="opc-feature-card wow fadeInUp" data-wow-delay=".7s">
+                <div class="opc-feature-icon">
+                  <i class="tji-service-6"></i>
+                </div>
+                <h4 class="opc-feature-title">24/7 Support</h4>
+                <p class="opc-feature-desc">Dedicated technical support team available round-the-clock for your peace of mind.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Architecture Section -->
+        <section class="opc-architecture-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="sec-heading text-center wow fadeInUp" data-wow-delay=".2s">
+                  <span class="sub-title"><i class="tji-box"></i> System Components</span>
+                  <h2 class="sec-title title-anim">Modular <span>Architecture</span></h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="opc-architecture-item wow fadeInUp" data-wow-delay=".2s">
+                  <h4><i class="tji-arrow-right-long" style="color: #1e8a8a; margin-right: 10px;"></i>OPC UA Wrapper Core</h4>
+                  <p>The central component that handles all OPC UA protocol operations, data transformation, and communication management.</p>
+                </div>
+
+                <div class="opc-architecture-item wow fadeInUp" data-wow-delay=".3s">
+                  <h4><i class="tji-arrow-right-long" style="color: #1e8a8a; margin-right: 10px;"></i>Security Manager</h4>
+                  <p>Manages encryption, authentication, and authorization with support for X.509 certificates and role-based access control.</p>
+                </div>
+
+                <div class="opc-architecture-item wow fadeInUp" data-wow-delay=".4s">
+                  <h4><i class="tji-arrow-right-long" style="color: #1e8a8a; margin-right: 10px;"></i>Data Access Layer</h4>
+                  <p>Provides unified interface for reading, writing, and subscribing to industrial data from multiple sources.</p>
+                </div>
+
+                <div class="opc-architecture-item wow fadeInUp" data-wow-delay=".5s">
+                  <h4><i class="tji-arrow-right-long" style="color: #1e8a8a; margin-right: 10px;"></i>Monitoring & Analytics</h4>
+                  <p>Built-in analytics engine for real-time monitoring, alerting, and historical data analysis.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Use Cases Section -->
+        <section class="section-gap section-gap-x">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="sec-heading text-center wow fadeInUp" data-wow-delay=".2s">
+                  <span class="sub-title"><i class="tji-box"></i> Real-World Applications</span>
+                  <h2 class="sec-title title-anim">Use Cases & <span>Solutions</span></h2>
+                </div>
+              </div>
+            </div>
+
+            <div class="opc-use-cases-grid">
+              <div class="opc-use-case-card wow fadeInUp" data-wow-delay=".2s">
+                <div class="opc-use-case-content">
+                  <div class="opc-use-case-icon">
+                    <i class="tji-service-1"></i>
+                  </div>
+                  <h4 class="opc-use-case-title">Manufacturing Modernization</h4>
+                  <p class="opc-use-case-desc">Connect legacy PLCs and modern MES systems for seamless production data flow and real-time optimization.</p>
+                </div>
+              </div>
+
+              <div class="opc-use-case-card wow fadeInUp" data-wow-delay=".3s">
+                <div class="opc-use-case-content">
+                  <div class="opc-use-case-icon">
+                    <i class="tji-service-2"></i>
+                  </div>
+                  <h4 class="opc-use-case-title">IoT Integration</h4>
+                  <p class="opc-use-case-desc">Bridge industrial equipment with cloud platforms and IoT services for advanced analytics and AI-driven insights.</p>
+                </div>
+              </div>
+
+              <div class="opc-use-case-card wow fadeInUp" data-wow-delay=".4s">
+                <div class="opc-use-case-content">
+                  <div class="opc-use-case-icon">
+                    <i class="tji-service-3"></i>
+                  </div>
+                  <h4 class="opc-use-case-title">Predictive Maintenance</h4>
+                  <p class="opc-use-case-desc">Collect and analyze equipment data to predict failures before they occur, reducing downtime and costs.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="opc-cta-section">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-8 mx-auto">
+                <div class="opc-cta-content">
+                  <h2 class="opc-cta-title">Ready to Transform Your Operations?</h2>
+                  <p class="opc-cta-desc">Join hundreds of enterprises leveraging OPC UA Wrapper for seamless industrial integration.</p>
+                  <div class="opc-cta-buttons">
+                    <a href="contact.html" class="opc-btn-primary">
+                      <span>Schedule Demo</span>
+                      <i class="tji-arrow-right-long"></i>
+                    </a>
+                    <a href="about.html" class="opc-btn-secondary">
+                      <span>Learn More</span>
+                      <i class="tji-arrow-right-long"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Footer Section -->
+      <footer class="tj-footer-section footer-1 section-gap-x">
+        <div class="footer-main-area">
+          <div class="container">
+            <div class="row justify-content-between">
+              <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="footer-widget wow fadeInUp" data-wow-delay=".1s">
+                  <div class="footer-logo">
+                    <a href="index.html">
+                      <img src="assets/images/logos/logo.webp" alt="Logos">
+                    </a>
+                  </div>
+                  <div class="footer-text">
+                    <p>Industrial integration solutions for modern enterprises.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xl-3 col-lg-4 col-md-6">
+                <div class="footer-widget widget-nav-menu wow fadeInUp" data-wow-delay=".3s">
+                  <h5 class="title">Products</h5>
+                  <ul>
+                    <li><a href="#">OPC UA Wrapper</a></li>
+                    <li><a href="#">SIOTH Integration</a></li>
+                    <li><a href="#">Data Gateway</a></li>
+                    <li><a href="#">Security Suite</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-2 col-lg-4 col-md-6">
+                <div class="footer-widget widget-nav-menu wow fadeInUp" data-wow-delay=".5s">
+                  <h5 class="title">Resources</h5>
+                  <ul>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Support</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-xl-4 col-lg-5 col-md-6">
+                <div class="footer-widget widget-subscribe wow fadeInUp" data-wow-delay=".7s">
+                  <h3 class="title">Subscribe to Updates</h3>
+                  <div class="subscribe-form">
+                    <form action="#">
+                      <input type="email" name="email" placeholder="Enter email">
+                      <button type="submit"><i class="tji-plane"></i></button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tj-copyright-area">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="copyright-content-area">
+                  <div class="copyright-text">
+                    <p>&copy; 2025 Integration Objects. All rights reserved.</p>
+                  </div>
+                  <div class="social-links">
+                    <ul>
+                      <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a></li>
+                      <li><a href="https://www.linkedin.com/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                      <li><a href="https://x.com/" target="_blank"><i class="fa-brands fa-x-twitter"></i></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <!-- JS here -->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/gsap.min.js"></script>
+  <script src="assets/js/ScrollSmoother.js"></script>
+  <script src="assets/js/gsap-scroll-to-plugin.min.js"></script>
+  <script src="assets/js/gsap-scroll-trigger.min.js"></script>
+  <script src="assets/js/gsap-split-text.min.js"></script>
+  <script src="assets/js/swiper.min.js"></script>
+  <script src="assets/js/wow.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
