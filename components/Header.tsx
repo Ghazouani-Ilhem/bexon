@@ -171,6 +171,16 @@ const Header: React.FC = () => {
                     >
                       <i className="tji-search"></i>
                     </button>
+                    <button 
+                      type="button" 
+                      className="search_close_btn"
+                      onClick={() => setIsSearchOpen(false)}
+                    >
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 1L1 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M1 1L17 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
                   </div>
                   <div className="header-button">
                     <Link href="/contact" className="tj-primary-btn">
@@ -286,6 +296,16 @@ const Header: React.FC = () => {
                       onClick={() => setIsSearchOpen(true)}
                     >
                       <i className="tji-search"></i>
+                    </button>
+                    <button 
+                      type="button" 
+                      className="search_close_btn"
+                      onClick={() => setIsSearchOpen(false)}
+                    >
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17 1L1 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        <path d="M1 1L17 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
                     </button>
                   </div>
                   <div className="header-button">
