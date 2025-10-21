@@ -92,7 +92,7 @@ const Header: React.FC = () => {
       <SearchPopup isOpen={isSearchOpen} onClose={handleSearchClose} />
       
       {/* Desktop Header */}
-      <header className="header-area header-1 section-gap-x">
+      <header className="header-area header-1 header-absolute section-gap-x">
         <div className="container-fluid">
           <div className="row">
             <div className="col-12">
