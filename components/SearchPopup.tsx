@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface SearchPopupProps {
   isOpen: boolean;
@@ -6,10 +6,44 @@ interface SearchPopupProps {
 }
 
 const SearchPopup: React.FC<SearchPopupProps> = ({ isOpen, onClose }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Escape') {
+      onClose();
+    }
+  };
+
   return (
     <>
-      <div className={`search-popup-overlay ${isOpen ? 'active' : ''}`} onClick={onClose}></div>
-      <div className={`search_popup ${isOpen ? 'active' : ''}`}>
+      <div 
+        className={`search-popup-overlay ${isOpen ? 'active' : ''}`} 
+        onClick={onClose}
+      />
+      <div 
+        className={`search_popup ${isOpen ? 'active' : ''}`}
+        onKeyDown={handleKeyDown}
+        tabIndex={-1}
+      >
+        <div className="search_close">
+          <button 
+            className="search_close_btn" 
+            onClick={onClose}
+            aria-label="Close search"
+          >
+            <i className="fa fa-times"></i>
+          </button>
+        </div>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-8">
@@ -23,6 +57,7 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ isOpen, onClose }) => {
                           type="text" 
                           placeholder="Type Words and Hit Enter" 
                           required 
+                          autoFocus={isOpen}
                         />
                         <button type="submit">
                           <i className="tji-search"></i>

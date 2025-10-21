@@ -9,6 +9,14 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+  const handleSearchToggle = () => {
+    setIsSearchOpen(!isSearchOpen);
+  };
+
+  const handleSearchClose = () => {
+    setIsSearchOpen(false);
+  };
+
   const menuItems: MenuItem[] = [
     {
       title: 'Home',
@@ -81,7 +89,7 @@ const Header: React.FC = () => {
   return (
     <>
       <OffcanvasMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
-      <SearchPopup isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <SearchPopup isOpen={isSearchOpen} onClose={handleSearchClose} />
       
       {/* Desktop Header */}
       <header className="header-area header-1 section-gap-x">
