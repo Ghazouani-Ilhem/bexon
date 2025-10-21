@@ -3,6 +3,9 @@ export interface MenuItem {
   href: string;
   children?: MenuItem[];
   badge?: string;
+  isPagesMenu?: boolean;
+  otherPages?: MenuItem[];
+  shopPages?: MenuItem[];
 }
 
 export interface TeamMember {
