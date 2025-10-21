@@ -24,6 +24,12 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ isOpen, onClose }) => {
     }
   };
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle search submission here
+    console.log('Search submitted');
+  };
+
   return (
     <>
       <div 
@@ -49,7 +55,7 @@ const SearchPopup: React.FC<SearchPopupProps> = ({ isOpen, onClose }) => {
             <div className="col-8">
               <div className="tj_search_wrapper">
                 <div className="search_form">
-                  <form action="/">
+                  <form onSubmit={handleSubmit}>
                     <div className="search_input">
                       <div className="search-box">
                         <input 
