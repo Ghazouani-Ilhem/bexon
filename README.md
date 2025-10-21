@@ -1,152 +1,271 @@
-# Bexon Next.js Corporate Business Template
+# Bexon Next.js Application
 
-A modern, high-performance Next.js conversion of the Bexon corporate business HTML template with TypeScript support and optimized performance.
+A modern, high-performance Next.js application converted from HTML templates with reusable components and optimized performance.
 
-## Features
+## 🚀 Features
 
-- ⚡ **Next.js 14** with App Router
-- 🎯 **TypeScript** for type safety
-- 🚀 **Performance Optimized** with Image optimization, lazy loading
-- 📱 **Responsive Design** with Bootstrap 5
-- 🎨 **Modern UI Components** with reusable sections
-- 🔍 **SEO Optimized** with proper meta tags
-- ♿ **Accessibility** features included
-- 🎭 **Animations** with GSAP and WOW.js
-- 📊 **Analytics Ready** for tracking
+- **Next.js 14** with App Router
+- **TypeScript** for type safety
+- **Responsive Design** with mobile-first approach
+- **SEO Optimized** with dynamic meta tags
+- **Performance Optimized** with Next.js Image component
+- **Reusable Components** for maintainability
+- **Modern UI/UX** with smooth animations
+- **E-commerce Ready** with shop functionality
+- **Blog System** with dynamic content
+- **Contact Forms** with validation
+- **Error Handling** with custom error pages
 
-## Project Structure
+## 📁 Project Structure
 
 ```
-├── components/           # Reusable React components
-│   ├── sections/        # Page sections (Hero, About, etc.)
-│   ├── Header.tsx       # Main header component
-│   ├── Footer.tsx       # Footer component
-│   ├── Layout.tsx       # Main layout wrapper
-│   └── ...
-├── pages/               # Next.js pages
-│   ├── _app.tsx        # App configuration
-│   ├── index.tsx       # Home page
-│   ├── about.tsx       # About page
-│   ├── contact.tsx     # Contact page
-│   └── ...
-├── public/             # Static assets
-│   └── assets/         # CSS, JS, images
-├── styles/             # Global styles
-├── types/              # TypeScript type definitions
-└── utils/              # Utility functions
+├── components/
+│   ├── Layout.tsx              # Main layout wrapper
+│   ├── Header.tsx              # Navigation header
+│   ├── Footer.tsx              # Site footer
+│   ├── PageHeader.tsx          # Page header component
+│   ├── Preloader.tsx           # Loading animation
+│   ├── BackToTop.tsx           # Scroll to top button
+│   ├── OffcanvasMenu.tsx       # Mobile menu
+│   ├── SearchPopup.tsx         # Search overlay
+│   └── sections/               # Page sections
+│       ├── HeroSection.tsx
+│       ├── AboutSection.tsx
+│       ├── ServiceGrid.tsx
+│       ├── PortfolioGrid.tsx
+│       ├── BlogGrid.tsx
+│       ├── TeamSection.tsx
+│       ├── TestimonialSection.tsx
+│       ├── FaqSection.tsx
+│       ├── ContactInfo.tsx
+│       ├── ContactForm.tsx
+│       ├── CartSection.tsx
+│       ├── CheckoutSection.tsx
+│       ├── WishlistSection.tsx
+│       ├── LoginForm.tsx
+│       ├── PasswordForm.tsx
+│       ├── PricingSection.tsx
+│       ├── CareersSection.tsx
+│       ├── HistorySection.tsx
+│       ├── TermsAndConditions.tsx
+│       ├── PrivacyPolicy.tsx
+│       ├── CookiePolicy.tsx
+│       ├── Sitemap.tsx
+│       ├── ComingSoon.tsx
+│       ├── Maintenance.tsx
+│       └── ShopDetails.tsx
+├── pages/
+│   ├── _app.tsx                # App wrapper
+│   ├── _document.tsx           # Document wrapper
+│   ├── index.tsx               # Homepage
+│   ├── about.tsx               # About page
+│   ├── service.tsx             # Services page
+│   ├── portfolio.tsx           # Portfolio page
+│   ├── blog.tsx                # Blog page
+│   ├── contact.tsx             # Contact page
+│   ├── team.tsx                # Team page
+│   ├── careers.tsx             # Careers page
+│   ├── pricing.tsx             # Pricing page
+│   ├── faq.tsx                 # FAQ page
+│   ├── shop.tsx                # Shop page
+│   ├── shop-details.tsx        # Product details
+│   ├── cart.tsx                # Shopping cart
+│   ├── checkout.tsx            # Checkout page
+│   ├── wishlist.tsx            # Wishlist page
+│   ├── login.tsx               # Login page
+│   ├── password.tsx            # Password reset
+│   ├── history.tsx             # Company history
+│   ├── terms-and-conditions.tsx
+│   ├── privacy-policy.tsx
+│   ├── cookie-policy.tsx
+│   ├── sitemap.tsx
+│   ├── coming-soon.tsx
+│   ├── maintenance.tsx
+│   ├── 404.tsx                 # 404 error page
+│   ├── 500.tsx                 # 500 error page
+│   └── [error-codes].tsx       # Custom error pages
+├── public/
+│   ├── assets/                 # Static assets
+│   │   ├── css/               # Stylesheets
+│   │   ├── js/                # JavaScript files
+│   │   ├── images/            # Images
+│   │   └── fonts/             # Font files
+│   ├── sitemap.xml            # SEO sitemap
+│   └── robots.txt             # Search engine directives
+├── styles/
+│   └── globals.css            # Global styles
+├── types/
+│   └── index.ts               # TypeScript interfaces
+├── next.config.js             # Next.js configuration
+├── tsconfig.json              # TypeScript configuration
+├── tailwind.config.js         # Tailwind CSS configuration
+├── postcss.config.js          # PostCSS configuration
+└── package.json               # Dependencies and scripts
 ```
 
-## Getting Started
+## 🛠️ Installation
 
-### Prerequisites
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd bexon-nextjs
+   ```
 
-- Node.js 18+ 
-- npm or yarn
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-### Installation
+3. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-1. Install dependencies:
-```bash
-npm install
-# or
-yarn install
-```
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-2. Run the development server:
-```bash
-npm run dev
-# or
-yarn dev
-```
+## 📦 Available Scripts
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run type-check` - Run TypeScript type checking
+- `npm run analyze` - Analyze bundle size
+- `npm run test` - Run tests
+- `npm run test:watch` - Run tests in watch mode
+- `npm run test:coverage` - Run tests with coverage
 
-### Building for Production
-
-```bash
-npm run build
-npm start
-```
-
-## Performance Features
-
-- **Image Optimization**: Next.js Image component with WebP/AVIF support
-- **Code Splitting**: Automatic code splitting for better performance
-- **Lazy Loading**: Images and components load when needed
-- **Bundle Optimization**: Tree shaking and minification
-- **Caching**: Optimized caching strategies
-- **CDN Ready**: Static asset optimization
-
-## Components
-
-### Layout Components
-- `Layout`: Main layout wrapper with SEO and performance optimizations
-- `Header`: Responsive header with navigation and search
-- `Footer`: Footer with links and contact information
-- `PageHeader`: Reusable page header with breadcrumbs
-
-### Section Components
-- `HeroSection`: Homepage hero with CTA buttons
-- `AboutSection`: About content with progress bars
-- `ServiceGrid`: Services grid with icons and descriptions
-- `TeamSection`: Team members with social links
-- `TestimonialSection`: Customer testimonials carousel
-- `ContactForm`: Contact form with validation
-- `FaqSection`: FAQ accordion component
-
-## Customization
+## 🎨 Customization
 
 ### Adding New Pages
-
-1. Create a new file in `pages/` directory
+1. Create a new file in the `pages/` directory
 2. Import and use the `Layout` component
-3. Add page-specific sections
-4. Update navigation in `Header.tsx`
+3. Add your content using existing section components
+
+### Creating New Components
+1. Create a new file in the `components/` directory
+2. Use TypeScript interfaces from `types/index.ts`
+3. Follow the existing component patterns
 
 ### Styling
-
 - Global styles are in `styles/globals.css`
-- Component-specific styles can be added as CSS modules
-- Bootstrap classes are available throughout
-- Custom CSS variables for theming
+- Component-specific styles can be added inline or as CSS modules
+- Tailwind CSS is available for utility classes
 
-### Adding New Sections
+## 🚀 Performance Optimizations
 
-1. Create component in `components/sections/`
-2. Define TypeScript interfaces in `types/`
-3. Import and use in pages
-4. Add animations with WOW.js data attributes
+- **Next.js Image Component** for optimized images
+- **SWC Minification** for faster builds
+- **CSS Optimization** with experimental features
+- **Console Removal** in production
+- **Dynamic Imports** for code splitting
+- **Lazy Loading** for better performance
 
-## SEO Features
+## 🔍 SEO Features
 
-- Dynamic meta tags per page
-- Open Graph support
-- Twitter Card support
-- Structured data ready
-- Sitemap generation
-- Robot.txt configuration
+- **Dynamic Meta Tags** with Next.js Head component
+- **Structured Data** for better search visibility
+- **XML Sitemap** for search engines
+- **Robots.txt** for crawler directives
+- **Open Graph** tags for social sharing
+- **Twitter Cards** for better social media integration
 
-## Browser Support
+## 📱 Responsive Design
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- IE 11+ (with polyfills)
+- **Mobile-First** approach
+- **Breakpoint System** using Bootstrap grid
+- **Touch-Friendly** interface elements
+- **Cross-Browser** compatibility
 
-## License
+## 🛒 E-commerce Features
 
-This project is licensed under the MIT License.
+- **Product Catalog** with filtering
+- **Shopping Cart** functionality
+- **Wishlist** system
+- **Checkout Process** with form validation
+- **User Authentication** system
 
-## Support
+## 📝 Blog System
 
-For support and questions, please contact the development team.
+- **Dynamic Blog Posts** with markdown support
+- **Category Filtering** and search
+- **Related Posts** suggestions
+- **Comment System** (ready for integration)
+- **SEO-Friendly** URLs
 
-## Changelog
+## 🎯 Error Handling
 
-### v1.0.0
-- Initial Next.js conversion
-- TypeScript implementation
-- Performance optimizations
-- Component architecture
-- SEO improvements
+- **Custom 404 Page** for not found errors
+- **500 Error Page** for server errors
+- **Comprehensive Error Pages** for various HTTP status codes
+- **User-Friendly** error messages
+
+## 🔧 Configuration
+
+### Next.js Configuration
+The `next.config.js` file includes:
+- React Strict Mode
+- SWC Minification
+- Image optimization
+- CSS optimization
+- Console removal in production
+
+### TypeScript Configuration
+The `tsconfig.json` includes:
+- Path aliases for cleaner imports
+- Strict type checking
+- Next.js specific settings
+
+## 📊 Analytics and Monitoring
+
+Ready for integration with:
+- Google Analytics
+- Google Tag Manager
+- Hotjar
+- Sentry for error tracking
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+1. Connect your GitHub repository
+2. Deploy automatically on push
+3. Environment variables can be set in the dashboard
+
+### Other Platforms
+- **Netlify** - Static site generation
+- **AWS Amplify** - Full-stack deployment
+- **DigitalOcean** - VPS deployment
+- **Docker** - Containerized deployment
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 🆘 Support
+
+For support and questions:
+- Create an issue in the repository
+- Contact the development team
+- Check the documentation
+
+## 🔄 Updates
+
+- **v0.1.0** - Initial release with full HTML to Next.js conversion
+- Regular updates and improvements planned
+
+---
+
+**Built with ❤️ using Next.js, React, and TypeScript**
