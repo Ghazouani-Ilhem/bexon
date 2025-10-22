@@ -282,13 +282,13 @@ const Header: React.FC = () => {
                                   </div>
                                 ) : (
                                   // Regular dropdown menus
-                                  <div>
+                                  <>
                                     {item.children.map((child, childIndex) => (
                                       <li key={childIndex}>
                                         <Link href={child.href}>{child.title}</Link>
                                       </li>
                                     ))}
-                                  </div>
+                                  </>
                                 )}
                               </li>
                             </ul>
@@ -513,13 +513,13 @@ const Header: React.FC = () => {
                                   </div>
                                 ) : (
                                   // Regular dropdown menus
-                                  <div>
+                                  <>
                                     {item.children.map((child, childIndex) => (
                                       <li key={childIndex}>
                                         <Link href={child.href}>{child.title}</Link>
                                       </li>
                                     ))}
-                                  </div>
+                                  </>
                                 )}
                               </li>
                             </ul>
