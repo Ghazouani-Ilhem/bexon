@@ -7,6 +7,9 @@ interface SearchPopupProps {
 
 const SearchPopup: React.FC<SearchPopupProps> = ({ isOpen, onClose }) => {
   useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined') return
+
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
