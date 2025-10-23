@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Home2Header from '@/components/Layout/Home2Header'
-import OffcanvasMenu from '@/components/Layout/OffcanvasMenu'
+import Home2OffcanvasMenu from '@/components/Layout/Home2OffcanvasMenu'
 import Preloader from '@/components/Layout/Preloader'
 import BackToTop from '@/components/Layout/BackToTop'
 import Footer from '@/components/Layout/Footer'
@@ -39,23 +39,23 @@ export default function Home2() {
 
       <div className="body-overlay"></div>
 
+      {/* Search Popup Overlay */}
+      <div className="search-popup-overlay"></div>
+
       {/* Preloader */}
       <Preloader />
 
       {/* Back to top */}
       <BackToTop />
 
-      {/* Search Popup */}
-      <SearchPopup />
-
       {/* Offcanvas Menu */}
-      <OffcanvasMenu />
+      <Home2OffcanvasMenu />
 
       {/* Header - Absolute */}
-      <Header isSticky={false} />
+      <Home2Header isSticky={false} />
 
       {/* Header - Sticky */}
-      <Header isSticky={true} />
+      <Home2Header isSticky={true} />
 
       <div id="smooth-wrapper">
         <div id="smooth-content">
