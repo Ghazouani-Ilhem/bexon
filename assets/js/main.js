@@ -1022,30 +1022,51 @@ Progressbar js
 	////////////////////////////////////////////////////
 	// wow js
 	function wowController() {
+		console.log('Initializing WOW.js...');
+		console.log('Found', $(".wow").length, 'wow elements');
+		
 		if ($(".wow").length > 0) {
 			// Destroy existing WOW instance if any
 			if (window.wowInstance) {
 				window.wowInstance = null;
 			}
 			
+			// Check if WOW is available
+			if (typeof WOW === 'undefined') {
+				console.error('WOW.js library not loaded');
+				// Fallback: make all elements visible
+				$('.wow').css('visibility', 'visible');
+				return;
+			}
+			
 			// Initialize WOW.js
-			window.wowInstance = new WOW({
-				boxClass: 'wow',
-				animateClass: 'animated',
-				offset: 0,
-				mobile: true,
-				live: true
-			});
-			window.wowInstance.init();
+			try {
+				window.wowInstance = new WOW({
+					boxClass: 'wow',
+					animateClass: 'animated',
+					offset: 0,
+					mobile: true,
+					live: true
+				});
+				window.wowInstance.init();
+				console.log('WOW.js initialized successfully');
+			} catch (error) {
+				console.error('Error initializing WOW.js:', error);
+				// Fallback: make all elements visible
+				$('.wow').css('visibility', 'visible');
+			}
 			
 			// Fallback: ensure all wow elements are visible after a delay
 			setTimeout(function() {
 				$('.wow').each(function() {
 					if (!$(this).hasClass('animated')) {
 						$(this).css('visibility', 'visible');
+						console.log('Made element visible as fallback');
 					}
 				});
 			}, 2000);
+		} else {
+			console.log('No wow elements found');
 		}
 	}
 	
@@ -1056,6 +1077,16 @@ Progressbar js
 				wowController();
 			}
 		}, 1000);
+	});
+	
+	// Additional fallback for slow loading
+	$(window).on('load', function() {
+		setTimeout(function() {
+			if (!window.wowInstance && $(".wow").length > 0) {
+				console.log('Fallback WOW.js initialization');
+				wowController();
+			}
+		}, 3000);
 	});
 
 	////////////////////////////////////////////////////

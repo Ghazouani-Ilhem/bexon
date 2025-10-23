@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Test</title>
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <style>
+        body { padding: 50px; font-family: Arial, sans-serif; }
+        .test-section { margin: 50px 0; padding: 20px; border: 1px solid #ccc; }
+        .test-element { 
+            background: #f0f0f0; 
+            padding: 20px; 
+            margin: 10px 0; 
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Animation Test Page</h1>
+    
+    <div class="test-section">
+        <h2>WOW.js Animation Test</h2>
+        <div class="test-element wow fadeInUp" data-wow-delay="0.1s">
+            Fade In Up Animation (0.1s delay)
+        </div>
+        <div class="test-element wow fadeInLeft" data-wow-delay="0.3s">
+            Fade In Left Animation (0.3s delay)
+        </div>
+        <div class="test-element wow fadeInRight" data-wow-delay="0.5s">
+            Fade In Right Animation (0.5s delay)
+        </div>
+        <div class="test-element wow bounceIn" data-wow-delay="0.7s">
+            Bounce In Animation (0.7s delay)
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Scroll down to see animations trigger</h2>
+        <div style="height: 100vh; background: #e0e0e0; display: flex; align-items: center; justify-content: center;">
+            <p>Scroll down to trigger animations</p>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>More Animation Tests</h2>
+        <div class="test-element wow slideInUp" data-wow-delay="0.2s">
+            Slide In Up Animation
+        </div>
+        <div class="test-element wow zoomIn" data-wow-delay="0.4s">
+            Zoom In Animation
+        </div>
+        <div class="test-element wow flipInX" data-wow-delay="0.6s">
+            Flip In X Animation
+        </div>
+    </div>
+
+    <script src="assets/js/wow.min.js"></script>
+    <script>
+        // Initialize WOW.js
+        new WOW({
+            boxClass: 'wow',
+            animateClass: 'animated',
+            offset: 0,
+            mobile: true,
+            live: true
+        }).init();
+        
+        // Debug: Log when animations trigger
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('WOW.js initialized');
+            console.log('Found', document.querySelectorAll('.wow').length, 'wow elements');
+        });
+    </script>
+</body>
+</html>
