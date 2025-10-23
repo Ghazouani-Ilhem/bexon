@@ -10,6 +10,8 @@ import Footer from '@/components/Layout/Footer'
 import Home2SliderSection from '@/components/Sections/Home2/Home2SliderSection'
 import Home2ClientSection from '@/components/Sections/Home2/Home2ClientSection'
 import Home2AboutSection from '@/components/Sections/Home2/Home2AboutSection'
+import Home2ServicesSection from '@/components/Sections/Home2/Home2ServicesSection'
+import Home2ProjectsSection from '@/components/Sections/Home2/Home2ProjectsSection'
 import Home2ProcessSection from '@/components/Sections/Home2/Home2ProcessSection'
 import Home2TestimonialSection from '@/components/Sections/Home2/Home2TestimonialSection'
 import Home2TeamSection from '@/components/Sections/Home2/Home2TeamSection'
@@ -69,6 +71,12 @@ export default function Home2() {
 
             {/* Home2 About Section */}
             <Home2AboutSection />
+
+            {/* Home2 Services Section */}
+            <Home2ServicesSection />
+
+            {/* Home2 Projects Section */}
+            <Home2ProjectsSection />
 
             {/* Home2 Process Section */}
             <Home2ProcessSection />
