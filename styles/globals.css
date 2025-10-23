@@ -38,6 +38,153 @@ a {
   text-decoration: none;
 }
 
+/* Fix for WOW.js animations in Next.js */
+.wow {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure animations are visible by default */
+.wow.animated {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Fallback animations for when WOW.js doesn't load */
+@media (prefers-reduced-motion: no-preference) {
+  .wow {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    visibility: visible !important;
+  }
+  
+  .wow.fadeIn {
+    animation-name: fadeIn;
+  }
+  
+  .wow.fadeInUp {
+    animation-name: fadeInUp;
+  }
+  
+  .wow.fadeInDown {
+    animation-name: fadeInDown;
+  }
+  
+  .wow.fadeInLeft {
+    animation-name: fadeInLeft;
+  }
+  
+  .wow.fadeInRight {
+    animation-name: fadeInRight;
+  }
+  
+  .wow.slideInUp {
+    animation-name: slideInUp;
+  }
+  
+  .wow.slideInDown {
+    animation-name: slideInDown;
+  }
+  
+  .wow.slideInLeft {
+    animation-name: slideInLeft;
+  }
+  
+  .wow.slideInRight {
+    animation-name: slideInRight;
+  }
+}
+
+/* Keyframe animations for fallback */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -40px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translate3d(0, -100%, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translate3d(-100%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translate3d(100%, 0, 0);
+    visibility: visible;
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

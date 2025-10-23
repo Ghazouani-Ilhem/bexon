@@ -1,45 +1,92 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { useEffect } from 'react'
+import Script from 'next/script'
+import useAnimations from '@/hooks/useAnimations'
 
 export default function App({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    // Load external scripts
-    const loadScript = (src: string) => {
-      return new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = src
-        script.onload = resolve
-        script.onerror = reject
-        document.head.appendChild(script)
-      })
-    }
+  // Initialize animations
+  useAnimations()
 
-    // Load required scripts
-    const loadScripts = async () => {
-      try {
-        await loadScript('/assets/js/jquery.min.js')
-        await loadScript('/assets/js/bootstrap.bundle.min.js')
-        await loadScript('/assets/js/gsap.min.js')
-        await loadScript('/assets/js/ScrollSmoother.js')
-        await loadScript('/assets/js/gsap-scroll-to-plugin.min.js')
-        await loadScript('/assets/js/gsap-scroll-trigger.min.js')
-        await loadScript('/assets/js/gsap-split-text.min.js')
-        await loadScript('/assets/js/jquery.nice-select.min.js')
-        await loadScript('/assets/js/swiper.min.js')
-        await loadScript('/assets/js/odometer.min.js')
-        await loadScript('/assets/js/venobox.min.js')
-        await loadScript('/assets/js/appear.min.js')
-        await loadScript('/assets/js/wow.min.js')
-        await loadScript('/assets/js/meanmenu.js')
-        await loadScript('/assets/js/main.js')
-      } catch (error) {
-        console.error('Error loading scripts:', error)
-      }
-    }
-
-    loadScripts()
-  }, [])
-
-  return <Component {...pageProps} />
+  return (
+    <>
+      {/* Load scripts using Next.js Script component for better performance */}
+      <Script 
+        src="/assets/js/jquery.min.js" 
+        strategy="beforeInteractive"
+        onLoad={() => console.log('jQuery loaded')}
+      />
+      <Script 
+        src="/assets/js/bootstrap.bundle.min.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('Bootstrap loaded')}
+      />
+      <Script 
+        src="/assets/js/gsap.min.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('GSAP loaded')}
+      />
+      <Script 
+        src="/assets/js/ScrollSmoother.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('ScrollSmoother loaded')}
+      />
+      <Script 
+        src="/assets/js/gsap-scroll-to-plugin.min.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('ScrollToPlugin loaded')}
+      />
+      <Script 
+        src="/assets/js/gsap-scroll-trigger.min.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('ScrollTrigger loaded')}
+      />
+      <Script 
+        src="/assets/js/gsap-split-text.min.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('SplitText loaded')}
+      />
+      <Script 
+        src="/assets/js/jquery.nice-select.min.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('NiceSelect loaded')}
+      />
+      <Script 
+        src="/assets/js/swiper.min.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('Swiper loaded')}
+      />
+      <Script 
+        src="/assets/js/odometer.min.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('Odometer loaded')}
+      />
+      <Script 
+        src="/assets/js/venobox.min.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('VenoBox loaded')}
+      />
+      <Script 
+        src="/assets/js/appear.min.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('Appear loaded')}
+      />
+      <Script 
+        src="/assets/js/wow.min.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('WOW.js loaded')}
+      />
+      <Script 
+        src="/assets/js/meanmenu.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('MeanMenu loaded')}
+      />
+      <Script 
+        src="/assets/js/main.js" 
+        strategy="afterInteractive"
+        onLoad={() => console.log('Main.js loaded')}
+      />
+      
+      <Component {...pageProps} />
+    </>
+  )
 }

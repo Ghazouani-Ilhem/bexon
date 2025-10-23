@@ -63,3 +63,17 @@ export interface SocialLink {
   url: string;
   icon: string;
 }
+
+// Global type declarations for external libraries
+declare global {
+  interface Window {
+    jQuery: any;
+    $: any;
+    gsap: any;
+    ScrollTrigger: any;
+    ScrollSmoother: any;
+    ScrollToPlugin: any;
+    WOW: any;
+    gsapController: () => void;
+  }
+}
