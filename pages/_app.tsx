@@ -1,69 +1,11 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { useEffect } from 'react'
 import Script from 'next/script'
+import useAnimations from '@/hooks/useAnimations'
 
 export default function App({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    // Initialize animations after scripts are loaded
-    const initializeAnimations = () => {
-      if (typeof window === 'undefined') return
-
-      // Initialize WOW.js animations
-      if (window.WOW) {
-        try {
-          new window.WOW({
-            boxClass: 'wow',
-            animateClass: 'animated',
-            offset: 0,
-            mobile: true,
-            live: true
-          }).init()
-          console.log('WOW.js initialized successfully')
-        } catch (error) {
-          console.error('Error initializing WOW.js:', error)
-        }
-      }
-      
-      // Initialize GSAP animations
-      if (window.gsap && window.ScrollTrigger) {
-        try {
-          window.gsap.registerPlugin(window.ScrollTrigger, window.ScrollSmoother, window.ScrollToPlugin)
-          
-          // Call the gsapController function if it exists
-          if (window.gsapController) {
-            window.gsapController()
-            console.log('GSAP animations initialized successfully')
-          }
-        } catch (error) {
-          console.error('Error initializing GSAP:', error)
-        }
-      }
-
-      // Fallback: Show all wow elements if WOW.js fails to load
-      setTimeout(() => {
-        const wowElements = document.querySelectorAll('.wow')
-        wowElements.forEach((element) => {
-          if (!element.classList.contains('animated')) {
-            element.classList.add('animated')
-            element.style.visibility = 'visible'
-          }
-        })
-      }, 2000)
-    }
-
-    // Initialize animations after scripts are loaded
-    const checkAndInitialize = () => {
-      if (window.jQuery && window.gsap && window.WOW) {
-        initializeAnimations()
-      } else {
-        setTimeout(checkAndInitialize, 100)
-      }
-    }
-
-    // Start checking after a short delay
-    setTimeout(checkAndInitialize, 500)
-  }, [])
+  // Initialize animations
+  useAnimations()
 
   return (
     <>
