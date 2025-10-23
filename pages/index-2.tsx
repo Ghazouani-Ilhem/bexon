@@ -1,9 +1,8 @@
 import Head from 'next/head'
-import Header from '@/components/Layout/Header'
+import Home2Header from '@/components/Layout/Home2Header'
 import OffcanvasMenu from '@/components/Layout/OffcanvasMenu'
 import Preloader from '@/components/Layout/Preloader'
 import BackToTop from '@/components/Layout/BackToTop'
-import SearchPopup from '@/components/Layout/SearchPopup'
 import Footer from '@/components/Layout/Footer'
 
 // Home2 specific components
