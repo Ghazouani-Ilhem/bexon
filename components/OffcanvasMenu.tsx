@@ -1,46 +1,36 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 
-interface OffcanvasMenuProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
-
-const OffcanvasMenu: React.FC<OffcanvasMenuProps> = ({ isOpen, onClose }) => {
+const OffcanvasMenu: React.FC = () => {
   return (
     <>
-      {/* Desktop Offcanvas */}
-      <div className={`tj-offcanvas-area d-none d-lg-block ${isOpen ? 'active' : ''}`}>
+      {/* Desktop Offcanvas Menu */}
+      <div className="tj-offcanvas-area d-none d-lg-block">
         <div className="hamburger_bg"></div>
         <div className="hamburger_wrapper">
           <div className="hamburger_inner">
             <div className="hamburger_top d-flex align-items-center justify-content-between">
               <div className="hamburger_logo">
                 <Link href="/" className="mobile_logo">
-                  <Image 
-                    src="/assets/images/logos/logo-2.webp" 
-                    alt="Logo" 
-                    width={120}
-                    height={40}
-                  />
+                  <img src="/assets/images/logos/logo-2.webp" alt="Logo" />
                 </Link>
               </div>
               <div className="hamburger_close">
-                <button className="hamburger_close_btn" onClick={onClose}>
+                <button className="hamburger_close_btn">
                   <i className="fa-thin fa-times"></i>
                 </button>
               </div>
             </div>
             <div className="offcanvas-text">
-              <p>Developing personalize our customer journeys to increase satisfaction & loyalty of our expansion recognized by industry leaders.</p>
+              <p>Developing personalize our customer journeys to increase satisfaction & loyalty of our expansion
+                recognized by industry leaders.</p>
             </div>
             <div className="hamburger-search-area">
               <h5 className="hamburger-title">Search Now!</h5>
               <div className="hamburger_search">
                 <form method="get" action="/">
                   <button type="submit"><i className="tji-search"></i></button>
-                  <input type="search" autoComplete="off" name="s" placeholder="Search here..." />
+                  <input type="search" autoComplete="off" name="s" defaultValue="" placeholder="Search here..." />
                 </form>
               </div>
             </div>
@@ -77,23 +67,18 @@ const OffcanvasMenu: React.FC<OffcanvasMenuProps> = ({ isOpen, onClose }) => {
       </div>
 
       {/* Mobile Hamburger Menu */}
-      <div className={`hamburger-area d-lg-none ${isOpen ? 'active' : ''}`}>
+      <div className="hamburger-area d-lg-none">
         <div className="hamburger_bg"></div>
         <div className="hamburger_wrapper">
           <div className="hamburger_inner">
             <div className="hamburger_top d-flex align-items-center justify-content-between">
               <div className="hamburger_logo">
                 <Link href="/" className="mobile_logo">
-                  <Image 
-                    src="/assets/images/logos/logo-2.webp" 
-                    alt="Logo" 
-                    width={120}
-                    height={40}
-                  />
+                  <img src="/assets/images/logos/logo-2.webp" alt="Logo" />
                 </Link>
               </div>
               <div className="hamburger_close">
-                <button className="hamburger_close_btn" onClick={onClose}>
+                <button className="hamburger_close_btn">
                   <i className="fa-thin fa-times"></i>
                 </button>
               </div>

@@ -4,6 +4,8 @@ import Header from './Header';
 import Footer from './Footer';
 import Preloader from './Preloader';
 import BackToTop from './BackToTop';
+import SearchPopup from './SearchPopup';
+import OffcanvasMenu from './OffcanvasMenu';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -34,17 +36,16 @@ const Layout: React.FC<LayoutProps> = ({
       
       <Preloader />
       <BackToTop />
+      <SearchPopup />
+      <OffcanvasMenu />
       
       <Header />
       
-      <div id="smooth-wrapper">
-        <div id="smooth-content">
-          <main id="primary" className="site-main">
-            {children}
-          </main>
-          <Footer />
-        </div>
-      </div>
+      <main id="primary" className="site-main">
+        {children}
+      </main>
+      
+      <Footer />
     </>
   );
 };
