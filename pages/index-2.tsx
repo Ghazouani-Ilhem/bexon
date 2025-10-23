@@ -6,7 +6,7 @@ import BackToTop from '@/components/Layout/BackToTop'
 import Footer from '@/components/Layout/Footer'
 
 // Home2 specific components
-import Home2SliderSection from '@/components/Sections/Home2/Home2SliderSection'
+import Home2BannerSlider from '@/components/Sections/Home2/Home2BannerSlider'
 import Home2ClientSection from '@/components/Sections/Home2/Home2ClientSection'
 import Home2AboutSection from '@/components/Sections/Home2/Home2AboutSection'
 import Home2ServicesSection from '@/components/Sections/Home2/Home2ServicesSection'
@@ -14,6 +14,8 @@ import Home2ProjectsSection from '@/components/Sections/Home2/Home2ProjectsSecti
 import Home2ProcessSection from '@/components/Sections/Home2/Home2ProcessSection'
 import Home2TestimonialSection from '@/components/Sections/Home2/Home2TestimonialSection'
 import Home2TeamSection from '@/components/Sections/Home2/Home2TeamSection'
+import Home2PricingSection from '@/components/Sections/Home2/Home2PricingSection'
+import Home2BlogSection from '@/components/Sections/Home2/Home2BlogSection'
 
 export default function Home2() {
   return (
@@ -62,8 +64,8 @@ export default function Home2() {
           <main id="primary" className="site-main">
             <div className="top-space-15"></div>
             
-            {/* Home2 Slider Section */}
-            <Home2SliderSection />
+            {/* Home2 Banner Slider */}
+            <Home2BannerSlider />
 
             {/* Home2 Client Section */}
             <Home2ClientSection />
@@ -85,6 +87,12 @@ export default function Home2() {
 
             {/* Home2 Team Section */}
             <Home2TeamSection />
+
+            {/* Home2 Pricing Section */}
+            <Home2PricingSection />
+
+            {/* Home2 Blog Section */}
+            <Home2BlogSection />
 
           </main>
 
