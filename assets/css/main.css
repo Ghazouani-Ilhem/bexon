@@ -631,9 +631,7 @@ img {
   --bs-gutter-x: 0;
 }
 
-.wow {
-  visibility: hidden;
-}
+/* WOW.js handles visibility - removed conflicting rule */
 
 .container-end-align {
   -webkit-margin-start: calc((100% - 1320px) / 2);
@@ -19229,9 +19227,7 @@ START: Hero CSS
   z-index: -1;
 }
 
-.wow {
-  visibility: hidden;
-}
+/* WOW.js handles visibility - removed conflicting rule */
 
 /* !END: Hero CSS */
 /**----------------------------------------
@@ -28688,4 +28684,15 @@ START: Blog CSS
   font-size: 20px;
 }
 
-/* !END: Blog CSS *//*# sourceMappingURL=main.css.map */
+/* !END: Blog CSS */
+
+/* WOW.js Animation Fix */
+.wow {
+  visibility: visible !important;
+}
+
+.wow.animated {
+  visibility: visible !important;
+}
+
+/*# sourceMappingURL=main.css.map */

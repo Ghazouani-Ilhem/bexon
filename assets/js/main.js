@@ -55,12 +55,18 @@ Progressbar js
 				tjPreloader.removeClass("is-loading").addClass("is-loaded");
 				setTimeout(function () {
 					tjPreloader.fadeOut(400);
-					wowController();
+					// Ensure WOW.js initializes after preloader
+					setTimeout(function() {
+						wowController();
+					}, 100);
 					gsapController();
 				}, 700);
 			}, 2000);
 		} else {
-			wowController();
+			// Ensure WOW.js initializes with a small delay
+			setTimeout(function() {
+				wowController();
+			}, 100);
 			gsapController();
 		}
 	});
@@ -1017,9 +1023,40 @@ Progressbar js
 	// wow js
 	function wowController() {
 		if ($(".wow").length > 0) {
-			new WOW().init();
+			// Destroy existing WOW instance if any
+			if (window.wowInstance) {
+				window.wowInstance = null;
+			}
+			
+			// Initialize WOW.js
+			window.wowInstance = new WOW({
+				boxClass: 'wow',
+				animateClass: 'animated',
+				offset: 0,
+				mobile: true,
+				live: true
+			});
+			window.wowInstance.init();
+			
+			// Fallback: ensure all wow elements are visible after a delay
+			setTimeout(function() {
+				$('.wow').each(function() {
+					if (!$(this).hasClass('animated')) {
+						$(this).css('visibility', 'visible');
+					}
+				});
+			}, 2000);
 		}
 	}
+	
+	// Fallback initialization
+	$(document).ready(function() {
+		setTimeout(function() {
+			if (!window.wowInstance && $(".wow").length > 0) {
+				wowController();
+			}
+		}, 1000);
+	});
 
 	////////////////////////////////////////////////////
 	// VenoBox Js
