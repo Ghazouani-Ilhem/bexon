@@ -38,6 +38,60 @@ a {
   text-decoration: none;
 }
 
+/* Fix for WOW.js animations in Next.js */
+.wow {
+  visibility: visible !important;
+}
+
+/* Ensure animations are visible by default */
+.wow.animated {
+  visibility: visible !important;
+}
+
+/* Fallback for when WOW.js doesn't load */
+@media (prefers-reduced-motion: no-preference) {
+  .wow {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+  
+  .wow.fadeIn {
+    animation-name: fadeIn;
+  }
+  
+  .wow.fadeInUp {
+    animation-name: fadeInUp;
+  }
+  
+  .wow.fadeInDown {
+    animation-name: fadeInDown;
+  }
+  
+  .wow.fadeInLeft {
+    animation-name: fadeInLeft;
+  }
+  
+  .wow.fadeInRight {
+    animation-name: fadeInRight;
+  }
+  
+  .wow.slideInUp {
+    animation-name: slideInUp;
+  }
+  
+  .wow.slideInDown {
+    animation-name: slideInDown;
+  }
+  
+  .wow.slideInLeft {
+    animation-name: slideInLeft;
+  }
+  
+  .wow.slideInRight {
+    animation-name: slideInRight;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
