@@ -2,7 +2,7 @@ import React from 'react';
 import LayoutThree from '@/components/LayoutThree';
 import BannerThree from '@/components/sections/index3/BannerThree';
 import ClientStripTwo from '@/components/sections/index3/ClientStripTwo';
-import ChooseSection from '@/components/sections/ChooseSection';
+import ChooseThree from '@/components/sections/index3/ChooseThree';
 import AboutTwo from '@/components/sections/index3/AboutTwo';
 import ServiceThree from '@/components/sections/index3/ServiceThree';
 import ProjectThree from '@/components/sections/index3/ProjectThree';
@@ -17,7 +17,7 @@ const IndexThreePage: React.FC = () => {
     <LayoutThree title="Bexon - Homepage 03">
       <BannerThree />
       <ClientStripTwo />
-      <ChooseSection />
+      <ChooseThree />
       <AboutTwo />
       <ServiceThree />
       <ProjectThree />
