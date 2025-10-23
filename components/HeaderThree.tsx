@@ -10,7 +10,7 @@ const HeaderThree: React.FC = () => {
             <div className="header-wrapper">
               <div className="site_logo">
                 <Link className="logo" href="/">
-                  <img src="/assets/images/logos/logo-3.webp" alt="Bexon" />
+                  <img src="/assets/images/logos/logo.webp" alt="Bexon" />
                 </Link>
               </div>
               <div className="menu-area d-none d-lg-inline-flex align-items-center">

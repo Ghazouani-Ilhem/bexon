@@ -1,22 +1,31 @@
 import React from 'react';
 import LayoutThree from '@/components/LayoutThree';
 import BannerThree from '@/components/sections/index3/BannerThree';
+import ClientStripTwo from '@/components/sections/index3/ClientStripTwo';
 import ChooseSection from '@/components/sections/ChooseSection';
+import AboutTwo from '@/components/sections/index3/AboutTwo';
 import ServiceThree from '@/components/sections/index3/ServiceThree';
+import ProjectThree from '@/components/sections/index3/ProjectThree';
+import TestimonialThree from '@/components/sections/index3/TestimonialThree';
+import Marquee from '@/components/sections/index3/Marquee';
+import TeamTwo from '@/components/sections/index3/TeamTwo';
 import BlogThree from '@/components/sections/index3/BlogThree';
+import FaqTwo from '@/components/sections/index3/FaqTwo';
 
 const IndexThreePage: React.FC = () => {
   return (
     <LayoutThree title="Bexon - Homepage 03">
       <BannerThree />
-      <div className="tj-client-section-2 section-gap-x wow fadeInUp" data-wow-delay=".4s">
-        {/* Leaving this strip minimal; slider initialized by global JS if present */}
-      </div>
+      <ClientStripTwo />
       <ChooseSection />
-      {/* About section 2 could be added similarly if needed */}
+      <AboutTwo />
       <ServiceThree />
-      {/* ProjectThree, TestimonialThree, TeamTwo, FaqTwo can be added as needed */}
+      <ProjectThree />
+      <TestimonialThree />
+      <Marquee />
+      <TeamTwo />
       <BlogThree />
+      <FaqTwo />
     </LayoutThree>
   );
 };
