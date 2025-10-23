@@ -47,23 +47,34 @@ Progressbar js
 		}
 	}
 	splitTextToSpans(target);
-	// Preloader js
-	$(window).on("load", function () {
-		const tjPreloader = $(".tj-preloader");
-		if (tjPreloader?.length) {
-			setTimeout(function () {
-				tjPreloader.removeClass("is-loading").addClass("is-loaded");
-				setTimeout(function () {
-					tjPreloader.fadeOut(400);
-					wowController();
-					gsapController();
-				}, 700);
-			}, 2000);
-		} else {
-			wowController();
-			gsapController();
-		}
-	});
+    // Preloader and initial animations (robust for SPA/Next.js)
+    let __BEXON_INIT_DONE__ = false;
+    function runInitialAnimations() {
+        if (__BEXON_INIT_DONE__) return;
+        __BEXON_INIT_DONE__ = true;
+
+        const tjPreloader = $(".tj-preloader");
+        if (tjPreloader?.length) {
+            setTimeout(function () {
+                tjPreloader.removeClass("is-loading").addClass("is-loaded");
+                setTimeout(function () {
+                    tjPreloader.fadeOut(400);
+                    wowController();
+                    gsapController();
+                }, 700);
+            }, 2000);
+        } else {
+            wowController();
+            gsapController();
+        }
+    }
+
+    // Prefer window load, but also handle the case where load already fired
+    $(window).on("load", runInitialAnimations);
+    if (document.readyState === "complete") {
+        // If this script was injected after load (common in Next.js), run immediately
+        setTimeout(runInitialAnimations, 0);
+    }
 
 	/* ------------- Gsap registration Js -------------*/
 	gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);

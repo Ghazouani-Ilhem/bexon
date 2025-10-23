@@ -1,0 +1,31 @@
+import React from 'react';
+import Link from 'next/link';
+
+const CTASection: React.FC = () => {
+  return (
+    <section className="tj-cta-section">
+      <div className="container">
+        <div className="row">
+          <div className="col-12">
+            <div className="cta-area">
+              <div className="cta-content">
+                <h2 className="title title-anim">Let’s Build Future Together.</h2>
+                <div className="cta-btn wow fadeInUp" data-wow-delay=".6s">
+                  <Link className="tj-primary-btn btn-dark" href="/contact">
+                    <span className="btn-text"><span>Get Started Now</span></span>
+                    <span className="btn-icon"><i className="tji-arrow-right-long"></i></span>
+                  </Link>
+                </div>
+              </div>
+              <div className="cta-img">
+                <img src="/assets/images/cta/cta-bg.webp" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default CTASection;
