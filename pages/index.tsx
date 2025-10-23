@@ -9,11 +9,13 @@ import SearchPopup from '@/components/Layout/SearchPopup'
 // Main sections
 import HeroSection from '@/components/Sections/HeroSection'
 import ChooseSection from '@/components/Sections/ChooseSection'
+import ClientSection from '@/components/Sections/ClientSection'
 import AboutSection from '@/components/Sections/AboutSection'
 import ServicesSection from '@/components/Sections/ServicesSection'
 import CountupSection from '@/components/Sections/CountupSection'
 import ProjectsSection from '@/components/Sections/ProjectsSection'
 import TestimonialsSection from '@/components/Sections/TestimonialsSection'
+import FAQSection from '@/components/Sections/FAQSection'
 import CTASection from '@/components/Sections/CTASection'
 import BlogSection from '@/components/Sections/BlogSection'
 import ContactSection from '@/components/Sections/ContactSection'
@@ -71,6 +73,9 @@ export default function Home() {
             {/* Choose Section */}
             <ChooseSection />
 
+            {/* Client Section */}
+            <ClientSection />
+
             {/* About Section */}
             <AboutSection />
 
@@ -86,14 +91,17 @@ export default function Home() {
             {/* Testimonials Section */}
             <TestimonialsSection />
 
-            {/* CTA Section */}
-            <CTASection />
+            {/* FAQ Section */}
+            <FAQSection />
+
+            {/* Contact Section */}
+            <ContactSection />
 
             {/* Blog Section */}
             <BlogSection />
 
-            {/* Contact Section */}
-            <ContactSection />
+            {/* CTA Section */}
+            <CTASection />
 
           </main>
 
