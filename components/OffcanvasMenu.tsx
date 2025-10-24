@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const OffcanvasMenu: React.FC = () => {
   return (
@@ -12,7 +13,12 @@ const OffcanvasMenu: React.FC = () => {
             <div className="hamburger_top d-flex align-items-center justify-content-between">
               <div className="hamburger_logo">
                 <Link href="/" className="mobile_logo">
-                  <img src="/assets/images/logos/logo-2.webp" alt="Logo" />
+                  <Image 
+                    src="/assets/images/logos/logo-2.webp" 
+                    alt="Logo" 
+                    width={120}
+                    height={40}
+                  />
                 </Link>
               </div>
               <div className="hamburger_close">
@@ -74,7 +80,12 @@ const OffcanvasMenu: React.FC = () => {
             <div className="hamburger_top d-flex align-items-center justify-content-between">
               <div className="hamburger_logo">
                 <Link href="/" className="mobile_logo">
-                  <img src="/assets/images/logos/logo-2.webp" alt="Logo" />
+                  <Image 
+                    src="/assets/images/logos/logo-2.webp" 
+                    alt="Logo" 
+                    width={120}
+                    height={40}
+                  />
                 </Link>
               </div>
               <div className="hamburger_close">

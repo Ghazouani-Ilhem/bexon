@@ -42,5 +42,22 @@ export default function App({ Component, pageProps }: AppProps) {
     loadScripts()
   }, [])
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Head>
+        {/* CSS Files */}
+        <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/assets/css/font-awesome-pro.min.css" />
+        <link rel="stylesheet" href="/assets/css/animate.min.css" />
+        <link rel="stylesheet" href="/assets/css/bexon-icons.css" />
+        <link rel="stylesheet" href="/assets/css/nice-select.css" />
+        <link rel="stylesheet" href="/assets/css/swiper.min.css" />
+        <link rel="stylesheet" href="/assets/css/venobox.min.css" />
+        <link rel="stylesheet" href="/assets/css/odometer-theme-default.css" />
+        <link rel="stylesheet" href="/assets/css/meanmenu.css" />
+        <link rel="stylesheet" href="/assets/css/main.css" />
+      </Head>
+      <Component {...pageProps} />
+    </>
+  )
 }
