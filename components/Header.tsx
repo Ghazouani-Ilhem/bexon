@@ -75,9 +75,99 @@ const Header: React.FC = () => {
                       </ul>
                     </li>
                     <li><Link href="/about">About</Link></li>
-                    <li><Link href="/service">Services</Link></li>
-                    <li><Link href="/portfolio">Portfolio</Link></li>
-                    <li><Link href="/blog">Blog</Link></li>
+                    <li className="has-dropdown">
+                      <Link href="/service">Services</Link>
+                      <ul className="sub-menu mega-menu-service">
+                        <li>
+                          <Link href="/service-details" className="mega-menu-service-single">
+                            <span className="mega-menu-service-icon">
+                              <i className="tji-service-1"></i>
+                            </span>
+                            <span className="mega-menu-service-title">Business Strategy Development</span>
+                            <span className="mega-menu-service-nav">
+                              <i className="tji-arrow-right-long"></i>
+                              <i className="tji-arrow-right-long"></i>
+                            </span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/service-details" className="mega-menu-service-single">
+                            <span className="mega-menu-service-icon">
+                              <i className="tji-service-2"></i>
+                            </span>
+                            <span className="mega-menu-service-title">Customer Experience Solutions</span>
+                            <span className="mega-menu-service-nav">
+                              <i className="tji-arrow-right-long"></i>
+                              <i className="tji-arrow-right-long"></i>
+                            </span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/service-details" className="mega-menu-service-single">
+                            <span className="mega-menu-service-icon">
+                              <i className="tji-service-3"></i>
+                            </span>
+                            <span className="mega-menu-service-title">Sustainability and ESG Consulting</span>
+                            <span className="mega-menu-service-nav">
+                              <i className="tji-arrow-right-long"></i>
+                              <i className="tji-arrow-right-long"></i>
+                            </span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/service-details" className="mega-menu-service-single">
+                            <span className="mega-menu-service-icon">
+                              <i className="tji-service-4"></i>
+                            </span>
+                            <span className="mega-menu-service-title">Training and Development Programs</span>
+                            <span className="mega-menu-service-nav">
+                              <i className="tji-arrow-right-long"></i>
+                              <i className="tji-arrow-right-long"></i>
+                            </span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/service-details" className="mega-menu-service-single">
+                            <span className="mega-menu-service-icon">
+                              <i className="tji-service-5"></i>
+                            </span>
+                            <span className="mega-menu-service-title">IT Support & Maintenance</span>
+                            <span className="mega-menu-service-nav">
+                              <i className="tji-arrow-right-long"></i>
+                              <i className="tji-arrow-right-long"></i>
+                            </span>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/service-details" className="mega-menu-service-single">
+                            <span className="mega-menu-service-icon">
+                              <i className="tji-service-6"></i>
+                            </span>
+                            <span className="mega-menu-service-title">Marketing Strategy & Campaigns</span>
+                            <span className="mega-menu-service-nav">
+                              <i className="tji-arrow-right-long"></i>
+                              <i className="tji-arrow-right-long"></i>
+                            </span>
+                          </Link>
+                        </li>
+                      </ul>
+                    </li>
+                    <li className="has-dropdown">
+                      <Link href="/portfolio">Portfolio</Link>
+                      <ul className="sub-menu">
+                        <li><Link href="/portfolio">Portfolio</Link></li>
+                        <li><Link href="/portfolio-details">Portfolio Details</Link></li>
+                      </ul>
+                    </li>
+                    <li className="has-dropdown">
+                      <Link href="/blog">Blog</Link>
+                      <ul className="sub-menu">
+                        <li><Link href="/blog">Blog</Link></li>
+                        <li><Link href="/blog-grid">Blog Grid</Link></li>
+                        <li><Link href="/blog-right-sidebar">Blog Right Sidebar</Link></li>
+                        <li><Link href="/blog-details">Blog Details</Link></li>
+                      </ul>
+                    </li>
                     <li><Link href="/contact">Contact</Link></li>
                   </ul>
                 </nav>
