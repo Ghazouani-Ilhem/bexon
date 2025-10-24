@@ -1,0 +1,45 @@
+/* Import all theme CSS files */
+@import url('/assets/css/bootstrap.min.css');
+@import url('/assets/css/font-awesome-pro.min.css');
+@import url('/assets/css/animate.min.css');
+@import url('/assets/css/bexon-icons.css');
+@import url('/assets/css/nice-select.css');
+@import url('/assets/css/swiper.min.css');
+@import url('/assets/css/venobox.min.css');
+@import url('/assets/css/odometer-theme-default.css');
+@import url('/assets/css/meanmenu.css');
+@import url('/assets/css/main.css');
+
+/* Global styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
