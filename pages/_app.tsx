@@ -4,6 +4,9 @@ import { useEffect } from 'react'
 
 export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
+    // Only run on client side
+    if (typeof window === 'undefined') return
+
     // Load external scripts
     const loadScript = (src: string) => {
       return new Promise((resolve, reject) => {

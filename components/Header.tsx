@@ -91,7 +91,7 @@ const Header: React.FC = () => {
       <OffcanvasMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
       <SearchPopup isOpen={isSearchOpen} onClose={handleSearchClose} />
       
-      {/* Desktop Header */}
+      {/* Main Header */}
       <header className="header-area header-1 section-gap-x">
         <div className="container-fluid">
           <div className="row">
@@ -207,7 +207,7 @@ const Header: React.FC = () => {
         </div>
       </header>
 
-      {/* Sticky Header */}
+      {/* Sticky Header - Hidden by default, shown on scroll */}
       <header className="header-area header-1 header-duplicate header-sticky section-gap-x">
         <div className="container-fluid">
           <div className="row">
@@ -228,7 +228,7 @@ const Header: React.FC = () => {
 
                 {/* Navigation */}
                 <div className="menu-area d-none d-lg-inline-flex align-items-center">
-                  <nav className="mainmenu">
+                  <nav id="mobile-menu" className="mainmenu">
                     <ul>
                       {menuItems.map((item, index) => (
                         <li key={index} className={item.children ? 'has-dropdown' : ''}>
